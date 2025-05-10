@@ -2160,17 +2160,23 @@ background:whitesmoke;
 
            <span class="nav-section-text below-first3">JAMESY CREATOR</span>
 
-            <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'index.html';">Dashboard</button>
-           
-           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'newdoc.html';">Docs</button>
+<!-- <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'index.html';">
+  Dashboard
+</button>
+       -->     
+           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/jamesy-creator-docs';">Docs</button>
 
-           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'drawing.html';">Drawings</button>
+           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/jamesy-creator-drawings/';">Drawings</button>
+
+            <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/jamesy-creator-code/';">Scripts</button>
 
            <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'creative_tools.html';">Creative Toolbox</button>
            
                  <span class="nav-section-text below-first3">OTHER</span>
 
               <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'settings.html';">Settings</button>
+
+                <button class="home-page-nav-button ripple-button" onclick="quit()">Quit</button>
            
        </div>
    
@@ -2232,7 +2238,12 @@ background:whitesmoke;
 
    <script>
 
-  
+  function quit() {
+    window.close()
+    setTimeout(() => {
+       window.location.href = "https://jamesy-tech.github.io/jamesy-creator/";
+    }, 100);
+  }
     
             
 
@@ -3900,6 +3911,11 @@ try {
     } catch (e) {
       console.error('Error processing template_id:', e);
     }
+
+
+
+    
+
 
  </script>
 </body>

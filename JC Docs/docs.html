@@ -3110,24 +3110,23 @@ function home() {
         
         
     window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const content = params.get('doc');
-
-    if (content) {
-      const decoded = decodeURIComponent(content);
+    const droppedContent = sessionStorage.getItem('jcdoc_content');
+    if (droppedContent) {
+   
       document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')";
       setTimeout(() => {
         document.getElementById('colors').style.backgroundImage = "url('images/colors.png')";
       }, 3500);
 
-      documentEditor(); // your custom function
-      document.getElementById('contentDiv').innerHTML = decoded;
+   
 
-      // Optional: Clean up the URL
-      history.replaceState(null, '', 'docs.html');
+      document.getElementById('contentDiv').innerHTML = droppedContent;
+
+      sessionStorage.removeItem('jcdoc_content'); 
+
+      documentEditor()
     }
   });
-
      
         
 function openInNewWindow(url) {

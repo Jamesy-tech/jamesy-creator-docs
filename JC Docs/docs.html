@@ -3109,7 +3109,24 @@ function home() {
         }
         
         
-     
+      window.addEventListener('DOMContentLoaded', () => {
+    const droppedContent = sessionStorage.getItem('jcdoc_content');
+    if (droppedContent) {
+   
+      document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')";
+      setTimeout(() => {
+        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')";
+      }, 3500);
+
+   
+
+      document.getElementById('contentDiv').innerHTML = droppedContent;
+
+      sessionStorage.removeItem('jcdoc_content'); 
+
+      documentEditor()
+    }
+  });
         
         
 function openInNewWindow(url) {

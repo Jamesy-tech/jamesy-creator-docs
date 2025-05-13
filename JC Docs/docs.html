@@ -3109,25 +3109,26 @@ function home() {
         }
         
         
-      window.addEventListener('DOMContentLoaded', () => {
-    const droppedContent = sessionStorage.getItem('jcdoc_content');
-    if (droppedContent) {
-   
+    window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const content = params.get('doc');
+
+    if (content) {
+      const decoded = decodeURIComponent(content);
       document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')";
       setTimeout(() => {
         document.getElementById('colors').style.backgroundImage = "url('images/colors.png')";
       }, 3500);
 
-   
+      documentEditor(); // your custom function
+      document.getElementById('contentDiv').innerHTML = decoded;
 
-      document.getElementById('contentDiv').innerHTML = droppedContent;
-
-      sessionStorage.removeItem('jcdoc_content'); 
-
-      documentEditor()
+      // Optional: Clean up the URL
+      history.replaceState(null, '', 'docs.html');
     }
   });
-        
+
+     
         
 function openInNewWindow(url) {
   

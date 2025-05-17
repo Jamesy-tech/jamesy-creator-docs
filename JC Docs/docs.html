@@ -1,3567 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" href="images/docs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Dosis:wght@200..800&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
-    
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="images/docs.png">
-<head>
-  <title>Docs</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
 
-    <style>
- 
+    
+
+  <link rel="icon" href="icon.png">
+  <title>Docs</title>
+  <style>
+
+      
        @import url('https://fonts.googleapis.com/css2?family=Abel&family=Fascinate+Inline&family=Ga+Maamli&family=Happy+Monkey&family=Jaro:opsz@6..72&family=Kumbh+Sans:wght@100..900&family=Lilita+One&family=Lobster&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Silkscreen:wght@400;700&family=Tiny5&family=VT323&display=swap');
 
-        
-            
+
+
       
-           
-             
-    body {
-        background:#e0e0e0;
-        background-size:cover;
-        margin:0;
-        margin-bottom:0px;
-        padding-bottom:0px;
-        overflow-y:scroll;
-        overflow-x:hidden;
-        padding:0;
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family:"Lato";}
+    body {  background: white; color: black; height: 100vh; display: flex; flex-direction: column; }
+    .menu-bar {
+        background: white; padding: 0px; display: flex; gap: 12px; border-bottom:whitesmoke 1px solid; 
     }
-    .colorButton {
-    width: 100px;
+      
+    .menu-bar button {
+        display:inline-block;
+        background: none; border: none; color: black; cursor: pointer; padding: 12px 16px; font-size: 14px;
+        height:100%;
+        
+    }
+
+      #editorToolbar {
+  position: absolute;
+    bottom: 35px;
+    left: 10px;
+    right: 10px;
+          width:95%;
     height: 30px;
-    display: inline-block;
-    background: transparent;
-    border: solid black 1px;
-    transition: 0.3s;
-
-}
-#textedit3 {
- display:none;
- 
-}
-
-
-
-
-.colorButton:hover {
-    background: yellow;
-}
-
-       button {
-      
-      display:inline-block;
-    }
-     * {
-   
-     }
-    .imglogo {
-      float:left;
-      display:inline-block;
-      width:50px;
-      border:solid black 1px;
-    }
-    j {
-      color:gray;
-      
-    }
-    small {
-      color:gray;
-    }
-    .link1 {
-      text-decoration:none;
-    }
-    k {
-      color:black;
-    }
-      button {
-  
-        cursor:pointer;
-            display: inline-block;
-        }
-
-        .link {
-        color:teal;
-            text-decoration:underline;
-            cursor:pointer;
-            
-            }
-
-        .link:hover {
-       color:blue;
-            }
-        .button2 {
-          height:20px;
-          width:100%;
-          text-align:left;
-          background:transparent;
-          border:solid transparent 4px;
-          
-        }
-        .button2:hover {
-             background:yellow;
-        }
-        
-    .doc {
-    width:65%;
-    min-height:100vh;
-    outline:solid transparent 0px;
-    padding:15px;
-        padding-bottom:100px;
-    font-size:16px;
-        
-        margin-bottom:0px;
-        margin-left:auto;
-        margin-right:auto;
-
-        margin-top:20px;
-        
-    background:white;
- 
-            position: relative;
-            border-radius:0px;
-            border:solid lightgray 1px;
-            font-family:none;
-          transition:0.3s;
-      
-  
-    }
-    
-        .sidedoc {
-    width:25%;
-    float:left;
-    height:100vh;
-    overflow:scroll;
-    outline:solid transparent 0px;
-    border:solid dodgerblue 1px;
-    padding:15px;
-    font-family:verdana;
-    font-size:16px;
-    margin:auto;
-  
-    background:white;
-     min-height: 200px;
-            margin-bottom: 40px;
-            position: relative;
-            border-radius:0px;
-            margin-left:10px;
-          
-      
-  
-    }
-    
-    #left {
-      float:left;
-    }
-    #right {
-      float:right;
-    }
-    
-   
-    #insert {
-      display:none;
-    }
-     #textedit {
-      display:none;
-    }
-          .menufile {
-          color:black;
-          text-decoration:none;
-          width:100%;
-        }
-          .menufile:hover {
-          color:black;
-          text-decoration:underline;
-         cursor:pointer;
-          background:yellow;
-        }
-        .dropdown {
-  position: relative;
-  display: inline-block;
-  float:right;
-}
-
-.dropdown-content {
-  display: none;
-position:absolute;
-  background-color: #f9f9f9;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
-}
-
- /* Defualt Jamesy Creator buttons */
- 
-.b1 {
-  background:transparent;
-height:25px;
-transition:0.3s;
-width:30px;
-border:solid transparent 0px;
- border-radius:5px;
-  font-family: "Rubik", sans-serif;
- font-size:14px;
- border:solid transparent 2px;
- background:white;
-
-}
-
-.b1:hover {
-   color:darkgreen;
-   background:yellow;
-
-}
-
-.b19 {
-  background:transparent;
-height:25px;
-width:111px;
-border:solid transparent 0px;
- border-radius:5px;
-  font-family: "Rubik", sans-serif;
- font-size:14px;
-}
-
-.b19:hover {
-    background:#ddd;
-
-}
-
-.b112 {
-border-radius:8px;
-border:solid white 0px;
-width:60px;
-padding-top:2px;
-padding-bottom:2px;
- font-family: "Rubik", sans-serif;
- border:solid transparent 2px;
- background:white;
- transition:0.3s;
-
-  
-}
-
-.b112:hover {
-  color:blue;
-  background:yellow;
-}
-.b2 {
- background:deepskyblue;
- transition:0.3s;
-  font-family: "Rubik", sans-serif;
-}
-.b2:hover {
-  background:aquamarine;
-}
-
-/* End JC BTNs*/
-.dropdown:hover .dropdown-content {
-  display: block;
-  
-}
-gray {
-  color:gray;
-}
-.sidetools {
-  float:right;
-  width:48%;
-  height:100vh;
- 
-}
-.expandtruefalse {
-    background:transparent;
-  float:right;
-  width:30px;
-  transition:0.3s;
-  border:solid black 1px;
-  float:right;
-  width:30px;
-}
-.expandtruefalse:hover {
-  background:yellow;
- 
-}
-#image {
-  display:none;
-}
-
-.material-symbols-outlined {
-  width:22px;
-  height:22px;
-  border:solid black 1px;
-  font-size:22px;
-  display:inline-block;
-}
-
-big2 {
-  font-size:80px;
-   font-family: "Rubik", sans-serif;
-}
-big {
-  font-size:34px;
-   font-family: "Rubik", sans-serif;
-}
-small2 {
-  font-size:10px;
-   font-family: "Rubik", sans-serif;
-}
-
-
-selected {
-          border:none;
-          border-radius:5px;
-          margin-bottom:20px;
-          padding:10px;
-          margin:4px;
-          background:aliceblue;
-          display:inline-block;
-        }
-        
-        
-
-        k1 {
-          font-size:24px;
-          font-weight:bold;
-           font-family: "Rubik", sans-serif;
-        }
-        .title-container {
-          width:400px;
-          padding-top:10px;
-          padding-bottom:1px;
-        }
-        .logo {
-          width:75px;
-          border-radius:8px;
-          display:inline-block;
-           font-family: "Rubik", sans-serif;
-        }
-            .logo:hover {
-              cursor:pointer;
-        filter: saturate(2);
-        }
-      
-        .filename {
- 
-        }
-      
-           .b11222 {
-    background:lightgreen;
-      border:solid black 0px;
-      height:25px;
-      width:105px;
-      border-radius:5px;
-      float:right;
-      margin:1px;
-    }
-    .b11222:hover {
-      border:solid aquamarine 3px;
-     border-radius:8px;
-     
-    }
-     .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-    z-index: 9999;
-  }
-
-  .overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-     .overlay2 {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-    z-index: 9999;
-  }
-
-  .overlay-content2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width:625px;
-    height:380px;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-.jc222 {
-  color:green;
-  text-decoration:none;
-}
-.jc222:hover {
-  color:mediumseagreen;
-  text-decoration:underline;
-}
-
-.fontchanger {
-  background:transparent;
-  font-family:verdana;
-  border-radius:5px;
-height:40px;
-  border:solid whitesmoke 2px;
-  box-shadow:none;
-  outline:solid transparent 2px;
-  transition:0.3s;
- 
-}
-
-.fontchanger:focus {
-
-}
-
-select {
-  
-}
-#mySelect {
-  height:35px;
-    border:solid whitesmoke 2px;
-  border-radius:10px;
-  outline:none;
-  background:azure;
-  width:100px;
-    padding-left:5px;
-   font-family: "Rubik", sans-serif;
-     transition:0.3s;
-    
-}
-#mySelect:focus {
-
-}
-
-select {
-  outline:none;
-
-}
-
-
-.toolbar2 {
-    background:aliceblue;
-    display:none;
-   
-         padding:20px;
-          font-family: "Rubik", sans-serif;
-}
-
-.filename, #filename {
-  width:250px;
-  color:black;
-  
-  height:30px;
-  border:solid transparent 1px;
-  border-radius:5px;
-  outline:solid transparent 2px;
-  font-family:Verdana;
-  transition:0.3s;
-}
-.filename:focus, #filename:focus {
-    
-}
-
-.filename {
-  width:96%;
-
-  border-radius:25px;
-  padding-left:14px;
-  background:white;
-  padding-right:10px;
-  font-size:15px;
-  color:black;
-  background:#fafafa;
-  
-}
-
-.filename:focus {
-  outline:solid transparent 2px;
-  background:#f0fbfc;
-}
-a {
-  cursor:pointer;
-}
-
-.popup-menu .m{
-  overflow:scroll;
-  height:380px;
-  }
-
-  .overlay2 {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    z-index: 1000;
-  }
-
-  .popup-menu {
-    display: none;
-    position: fixed;
-    top: 50%;
-    width:750px;
-    transition:0.3s;
-overflow:scroll;
-    border-radius:8px;
-    height:400px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1500; /* Ensure menu is above overlay */
-  }
-
-.close-btn2 {
-background:tomato;
-transition:0.3s;
-border-radius:5px;
-width:34px;
-cursor:pointer;
-height:34px;
-border:none;
-color:white;
-font-weight:bold;
-font-size:20px;
-float:right;
-}
-.close-btn2:hover {
-background:red;
-}
-
-.s1 {
-  border-radius:5px 5px 0 0;
-  background:azure;
-  border-bottom:solid transparent 2px;
-  
-}
-.s1:hover {
-  border-bottom:solid limegreen 2px;
-}
-
-
-.jclink {
-         text-decoration:none;
-         color:darkblue;
-          font-family: "Rubik", sans-serif;
-          padding:8px;
-          border-radius:0px;
-          transition:0s;
-        }
-      
-  
-        .button1 {
-              height: 34px;
-              border-radius:5px;
-              width:260px;
-              background:lawngreen;
-              border:solid black 1px;
-              transition:0.1s;
-              outline:solid transparent 2px;
-              font-family:verdana;
-        }
-        
-             .button9:not(.button1) {
-              height: 34px;
-              border-radius:5px;
-              width:90px;
-              background:lawngreen;
-              border:solid black 1px;
-              transition:0.1s;
-              outline:solid transparent 2px;
-              font-family:verdana;
-        }
-        
-        .button1:hover, .button9:hover {
-          background:lightgreen;
-        }
-        .buttonfloat {
-          float:right;
-           position: absolute; /* Remove the element from the normal flow and position it relative to the closest positioned ancestor */
-    bottom: 6%; /* Aligns the element to the bottom of the container */
-    right: 6%; /* Aligns the element to the right of the container */
-      
-        }
-             .contacts {
-            margin-top: 20px;
-            height:70%;
-            width:98%;
-            border:none;
-            overflow:scroll;
-        }
-        .contact-item {
-            margin: 5px 0;
-            cursor: pointer;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #f9f9f9;
-        }
-        .contact-item:hover {
-            background-color: #f0f0f0;
-        }
-        .contact-info {
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
-        .contact-name {
-            margin-right: 10px;
-        }
-        .contact-email {
-            color: gray;
-            font-size: 0.9em;
-        }
-        .button {
-            margin: 5px;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .button.delete {
-            background-color: #f44336;
-            color: white;
-        }
-        .button.add {
-            background-color: #4CAF50;
-            color: white;
-        }
-        #email-input {
-            margin-top: 20px;
-            width: 300px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-     
-   
-   #recipient-email {
-     border:solid black 1px;
-     color:black;
-    
-   }
-      #recipient-email:focus {
-    border-bottom:solid dodgerblue 1px;
-    
-   }
-   
-       .dropdown {
-           display:inline-block;
-           padding:0;
-           margin:0;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown .menutext {
-            color: black;
-            text-decoration: none;
-            display: block;
-            padding: 12px 16px;
-            font-size:90%;
-        }
-
-        .dropdown .menutext:hover {
-            background-color:turquoise;
-        }
-     
-        .darkgreen {
-          color:teal;
-          border:none;
-        }
-        
-        .s2 {
-          background:azure;
-        }
-        
-        .s2:hover {
-          background:lemonchiffon;
-        }
-      
-        
-        .icon {
-          width:20px;
-        }
-        
-        
-        .toolbar {
-    background:white;
-         padding:10px;
-        width:99%;
-       border-bottom:solid whitesmoke 2px;
-        border-radius:0px 0px 0px 0px;
-          font-family: "Rubik", sans-serif;
-          display:block;
-         
-          
-         
-
-}
-
-.font {
-  font-family:verdana;
-}
-
-
-
-.b12 {
-  border:none;
-  outline:none;
-  background:transparent;
-  font-family:verdana;
-  padding:8px;
-    height:35px;
-  border-radius:5px;
-}
-.b12:hover {
-  background:whitesmoke;
-   
-}
-
-.font button {
-  background:azure;
-  border:none;
-  padding:10px;
-  font-family:verdana;
-  margin:5px;
-}
-
-
-          .ripple-button {
-  position: relative;
-
-  text-align: center;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.ripple-button:after {
-  content: "";
-  background: #f1f1f1;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.ripple-button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-}
-
-        
-.font button:hover {
-  background:yellow;
-}
-
-.font input {
-  border:none;
-  margin:10px;
-  background:lightgreen;
-  cursor:pointer;
-}
-
-        .navigationbutton {
-background:transparent;
-            padding:8px;
-            border-radius:6px;
-            border-width:1px;
-            border-color:transparent;
-            font-family:"Poppins";
-           
-            }
-        .navigationbutton:hover {
-background:whitesmoke;
-            }
-
-.font span {
-  background:azure;
-  padding:10px;
-  border-radius:10px;
-  height:20px;
-  width:20px;
-  font-family:verdana;
-  text-align:center;
-}
-.font span:hover {
-  background:yellow;
-}
-
-
-#documentEditor {
-  display:none;
-}
-
-#homePage {
-  display:block;
-}
-
-#fileList li {
-  cursor:pointer;
-    border-radius:3px;
-  font-size:20px;
-  text-decoration:none;
-    height:40px;
-  text-align:left;
-  background:none;
-  padding:5px;
-  padding-left:58px;
-  transition:0s;
-  font-size:17px;
-  font-family:"Mulish";
-  border:none;
-  list-style-type:none;
-  border:none;
-  width:90%;
-  margin-left:10px;
-  margin-right:10px;
-  padding-top:13px;
-  padding-bottom:13px;
-  margin:4px auto;
-  background-color:white;
-  background-image: url('images/docs.png'); /* Replace with your image path */
-  background-size: 40px 40px; /* Adjust size as needed */
-  background-repeat: no-repeat;
-  background-position: left center; /* Aligns image in the center vertically */
-    background-position: 10px center;
-
-  
-  
-}
-
-#fileList li:hover {
- 
-  
-  background-color:whitesmoke;
-            
-}
-        
-
-#fileList {
-  text-decoration:none;
-    list-style-type:none;
-    height:90vh;
-    background:transparent;
-    padding:6px;
-    margin:5px;
-    overflow-y:scroll;
-
-}
-
-.new {
- width:150px;
- font-family:verdana;
-          height:30px;
-          font-size:13px;
-          cursor:pointer;
-}
-
-.bigblockhome {
-  padding:0;
-  width:99%;
-  background:url("GreenBluePurpleGradient.png");
-  background-size:cover;
-  height:0vh;
-  margin:auto;
-}
-
-        .navcontainer {
-  /*  position: sticky;
-    top: 0;
-    z-index: 1000; */
-            
-  
-}
-
-
-        
-
-
-.newbutton {
-  width:50px;
-  margin-left:5px;
-  cursor:pointer;
-  border:solid lightgreen 2px;
-  border-radius:10px;
-  transition:0.3s;
-}
-.newbutton:hover {
-  border:solid dodgerblue 2px;
-}
-
-.maindocument {
-  overflow:scroll;
-    height:100vh;
-    
-}
-.homebutton {
-  width:50px;
-  margin-left:20px;
-  cursor:pointer;
-  border:solid lightgreen 2px;
-  border-radius:15px;
-  transition:0.3s;
-}
-.homebutton:hover {
-  border:solid dodgerblue 2px;
-}
-
-.newbutton, .uploadbutton {
-
-}
-.uploadbutton {
-  width:50px;
-  margin-left:5px;
-  cursor:pointer;
-  border:solid lightgreen 2px;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-/* The button */
-.sharebtn {
-
-}
-
-/* Container for the dropdown */
-.sharedrop {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown content (hidden by default) */
-.sharedrop .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.sharedrop .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.sharedrop .dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown content when hovering over the container */
-.sharedrop:hover .dropdown-content {
-  display: block;
-}
-
-
-
-.uploadbutton:hover {
-  border:solid dodgerblue 2px;
-}
-
-.to-docs {
-  width:80px;
-}
-#saveValue {
-  font-family:verdana;
-  
-  cursor:default;
-}
-.iconnav {
-  width:100%;
-  background:palegreen;
-  height:80px;
-    padding-right:0px;
-}
-
-.navinside {
-  
-}
-
-.navinside img {
- 
-  margin:5px;
-  
-}
-      
-      
-    .flex {
-      display:flex;
-    }
-    .filename-container {
-      padding:10px;
-      padding-top:20px;
-    }
-    
-    .titleicon {
-      cursor:pointer;
-    }
-    
-    .saveValueContainer {
-      width:300px;
-  
-      display:inline-block;
-    }
-    .rounded {
-      border-radius:25px;
-    }
-    
-    #offlinestatus {
-          font-family:monospace;
-          margin-left:7px;
-          cursor:default;
-    }
-    
-    .tool {
-     border:solid whitesmoke 0px;
-     color:black;
-     background:white;
-     font-family:verdana;
-     margin:5px;
-     transition:0.25s;
-     border-radius:10px;
-     padding:10px;
-        padding-top:10px;
-    }
-    
-    .tool:hover {
-     /* background:#1ff21f; */
-       /* border:solid black 1px; */
-        background:whitesmoke;
-      
-    }
-    
-    .bluebutton:disabled ,  .bluebutton2:disabled,  .bluebutton3:disabled,  .bluebutton4:disabled{
-      background:lightgray;
-      cursor:default;
-    }
-      .bluebutton:disabled:hover,  .bluebutton2:disabled:hover,  .bluebutton3:disabled:hover,  .bluebutton4:disabled:hover{
-      background:lightgray;
-      cursor:not-allowed;
-    }
-    
-      .bluebutton {
-          border-radius:25px 0 0 25px;
-          background-color:#c2e7ff;
-          padding:10px;
-          font-family:verdana;
-          width:100px;
-          border:none;
-          font-size:14px;
-          color:#001d35;
-          display:inline-block;
-          
-        }
-        
-          .bluebutton4 {
-          border-radius:25px 25px 25px 25px;
-          background-color:#c2e7ff;
-          padding:10px;
-          font-family:verdana;
-          width:100px;
-          border:none;
-          font-size:14px;
-          color:#001d35;
-          display:inline-block;
-          
-        }
-        
-        .bluebutton:hover, .bluebutton2:hover, .bluebutton4:hover {
-          background:#b2d7ef;
-      
-          
-          
-        }
-        
-          .bluebutton:focus, .bluebutton2:focus {
-          background:lightgreen;
-          transition:0.3s;
-          outline:dotted black 2px;
-      
-          
-          
-        }
-        
-        .bluebutton2 {
-            border-radius:0px;
-          background-color:#c2e7ff;
-          padding:10px;
-          font-family:verdana;
-            padding-left:3px;
-          width:60px;
-          border:none;
-          text-align:center;
-          color:#001d35;
-            
-          font-size:14px;
-      
-          border-left:solid transparent 4px;
-          border-right:solid transparent 4px;
-          display:inline-block;
-        }
-        
-        .firstbutton {
-          margin-left:4px;
-        }
-        
-        .end {
-        
-     
-             border-radius: 0 25px 25px 0;;
-          background-color:#c2e7ff;
-          padding:9px;
-          font-family:verdana;
-          width:60px;
-          border:none;
-          margin-left:0px;
-          font-size:14px;
-          display:inline-block;
-
-        }
-     
-     
-        .bluebutton-container {
-         
-          padding:20px;
-          margin-bottom:1px;
-          padding-bottom:10px;
-          padding-right:28px;
-          /* background:#c7fff5; */
-          padding-left:0px;
-        }
-        
-        
-        
-    
-@media (max-width:1119px) {
-   
-  
-  .screen2 {
-    display:none;
-  }
-  
- 
-}
-
-
-@media (min-width:1000px) {
-  .screenbreak {
-   display:none;
-  }
-  
- 
-}
-
-
-
-
-
-@media (max-width:400px) {
-   
-  .remove2 {
-    display:none;
-  }
-}
-
-@media (max-width:150px) {
-    
-}
-
-@media (max-width:600px) {
-  
-  
-}
-
-@media (max-width:1200px) {
-  .screenmedia {
-    display:none;
-  }
-
-    .screenmedia2 {
-   display:inline-block
-        }
-}
-
-        .screenmedia2 {
-display:none;
-            }
-@media (min-width:1000px) {
-  
-}
-  
-
- 
-     
-@media (max-width:1000px) {
-  
-  
-  
-  
-  .screen2 {
-    display:none;
-  }
-  
- .saveValueContainer {
-   padding:12px;
- }
-  
-  
-  .fontscreen {
-    display:none;
-  }
-  
-  .remove {
-    display:none;
-  }
-  
-
-  
-}
-
-                 .animated-title {
-    position: relative;
-    display: inline-block;
-    transition:0.5s;
-                   
-           
-}
-
-.animated-title:hover {
-    background: linear-gradient(to left, paleturquoise, mediumaquamarine);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-
-
-
-        </style>
-</head>
-
-<body class="body">
-
-<div id="top"></div>
-
-
-<div class="docnav">
-
-
-    <script>
-
- 
- 
-       getLocalStorage()
-     
-       
-        function getLocalStorage() {
-                   const backgroundImage = localStorage.getItem('background2');
-            if (backgroundImage) {
-                document.body.style.backgroundImage = `url(${backgroundImage})`;
-                document.body.style.backgroundSize = 'cover';
-                document.body.style.backgroundPosition = 'center';
-                document.body.style.backgroundRepeat = 'no-repeat';
-            }
-
-        }
-      
- 
-           setTimeout(() => {
-       
-                document.getElementById('colors').style.backgroundImage = "url('images/colors.png')";
-    }, 3500);
-
-        
-    
-
-
-          
-        
-    
-        
-     </script>
-
-       <style>
-                          .dropdown2 {
-    position: relative;
-}
-
-.dropdown-content2 {
-    display: none;
-    position: absolute;
-    transition:0.3s;
-    top: 100%;
-    left: 0;
-    z-index:99;
     background: white;
-    width: 400px;
-    border:solid whitesmoke 2px;
-    border-radius:10px;
-    padding: 10px;
-    margin:10px;
-}
-
-.app-grid2 {
-    display: grid;
-    font-family:"Sora";
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.app-item2 {
+          border:solid whitesmoke 1px;
+    border-radius: 6px;
+          overflow-x:scroll;
+    padding:0px;
+          padding-left:10px;
+          padding-right:10px;
     display: flex;
-    flex-direction: column;
+    gap: 8px;
     align-items: center;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-    padding:10px;
-    border-radius:10px;
-    transition:0s;
-}
+    z-index: 10;
+          }
 
-           .app-item2:hover {
-         background:whitesmoke;
-               
-               }
-.app-item2 img {
-    width: 40px;
-    height: 40px;
-}
-
-.show2 {
-    display: block;
-}
-
-             </style>
-    
-     <style>
-  .internet {
-  display:none;
-}
-
-       
-
-.colors-bottom {
-  width:100%;
-  height:18px;
-  background-size:cover;
-  background:url("images/colors.png");
-  margin-top:3px;
-}
-
-   .top-editors {
-        width:100%;
-        background:white;
-        height:70px;
-        display:flex;
-        font-family:verdana;
-      }
-      .top-editors-content {
-        padding:0px;
-        padding-left:20px;
-        padding-right:20px;
-        padding-top:30px;
-        margin:0px;
-        background:transparent;
-        cursor:pointer;
-        height:40px;
-        margin-left:10px;
-        margin-right:10px;
-      }
-      .top-editors-content:hover {
-
+      #editorToolbar button {
           
-      }
-
-         .toolbarselected {
- width:95%;
-             border-radius:25px;
-             }
-         .bold-gray {
-             border:solid whitesmoke 1px;
-             padding:0px;
-             margin:0px;
-             margin-top:10px;
-}
-      .active {
-        background:azure;
-        border-bottom:solid dodgerblue 4px;
-        height:36px;
-      }
-      .title {
-        border-right:solid lightgray 1px;
-        padding-right:34px;
-      }
-
-
-</style>
-    <!--
-<!--
- <div class="internet" id="internet" style="width:100%;height:20px;text-align:center;padding:20px;color:white;background:tomato;"><k style="color:white; font-family:verdana;">ERROR: No Internet | Some fonts or functions may be unavalible.</k></div>
- 
-  <div class="top-editors" id="top-editors">
-    <span class="top-editors-content title" onclick="window.location.href = '../index.html';">Jamesy Creator</span>
-    
-    <span class="top-editors-content active" onclick="window.location.href = 'newdoc.html';">Docs</span>
-    <span class="top-editors-content remove" onclick="window.location.href = 'drawing.html';">Drawings</span>
-      <span class="top-editors-content remove" onclick="window.location.href = 'newtext.html';">Code</span>
- </div>
-  -->
- 
-  <div class="colors" id="colors" style="width:100%;height:14px;background-size:cover;background:url('images/loadingbar.gif');"> </div>
- 
-     
-     <!-- TopbarEnd -->
-     
-     
-     
-     
-     <div id="documentEditor">
-       <div class="navcontainer">
-         
-       <div class="iconnav" id="mainnav">
-         
-         <div class="flex navinside">
-
-          
-          <div class="dropdown2">
-  <img onclick="homePage()" style="width:40px;height:40px;padding-left:20px;padding-right:7px; padding-top:17px;" class="titleicon dropbtn2" id="apps-icon" src="images/shapes.png">
-    <div class="dropdown-content2" id="menu2">
-        <div class="app-grid2">
-            <a href="index.html" class="app-item2"><img src="images/icon_padding.png" alt="Home">Dashboard</a>
-            <a onclick="homePage()" class="app-item2"><img src="images/docs.png" alt="Docs">Home</a>
-            <a href="drawing.html" class="app-item2"><img src="images/drawings.png" alt="Drawings">Drawings</a>
-            <a href="creative_tools.html" class="app-item2"><img src="images/creative_tools.png" alt="Creative Toolbox">Toolbox</a>
-        </div>
-    </div>
-</div>
-
-
-             
-             
-
-<div class="filename-container">
-    <input id="filename" autocomplete="off" placeholder="Untitled Document" value="Untitled Document"> &nbsp;
-  
-  
-   <div class="saveValueContainer"> <span id="saveValue">Not Saved</span>
-   
-   <span onclick="saveDoc4()" style="cursor:pointer;">&nbsp;💾&nbsp;</span><span id="offlinestatus" class="offline-status"></span>
-       
-       
-   </div>
-   
-   
-   <!--    <button class="tool screenmedia" onclick="openInNewWindow('voicetotext.html')">Voice to Text</button> -->
-    
-
-       <button class="tool screenmedia" onclick="openPage('add')">Add</button>
-
-      <button class="tool screenmedia" onclick="openPage('save-menu')">Save</button>
-
-     <button class="tool screenmedia" onclick="loadContent()">Open</button>
-
-     <button class="tool screenmedia" onclick="openInNewWindow('calculator.html')">Calculator</button>
-
-       <button class="tool screenmedia" onclick="openPage('settings-menu')">Settings</button>
-
-     
-   
-   
- <!--   <button class="tool screenmedia" onclick="shareJCDoc()">Share</button> -->
-    
-<!--     <button class="tool screenmedia" onclick="openOverlay()">Settings</button> -->
-
-
-  
-   
-   
-
-
-    </div>
-    
-       <!-- <div class="bluebutton-container screen2">
-<button class="bluebutton screen2" onclick="saveDoc4()" id="save">Save</button>
-            
-             <button onclick="printContent2()" class="bluebutton2 sharebtn screen2">Export</button>
-
-            <button id="save2" class="bluebutton2 screen2 firstbutton end" onclick="saveDoc()">.jcdoc</button>
-
-           
-
-
- &nbsp;&nbsp;
- <button class="bluebutton4 screen2 rounded" onclick="shareJCDoc()" id="share" disabled="true">Share</button>
-
-         </div>
-
-             -->
-      
-      
-       </div>
-     
-
-  
-
- 
-
-    </div>
-    
-    <center>
-        
-
-     
-        </center>
-     
-
- 
- 
- 
-    <center>
-  <div class="toolbar" id="toolbar">
-
-<!-- <selected class="toolbarselected"> -->
-   
-   
-   
-    
-
-   
-     <button class="b12 remove2" style="width:30px;" onclick="document.execCommand('underline', false, null)"><u style="font-family:monospace;">U</u></button>
-  <button class="b12 remove2" style="width:30px;"  onclick="document.execCommand('italic', false, null)"><i style="font-family:monospace;">I</i></button>
-  <button class="b12" style="width:30px;" onclick="document.execCommand('bold', false, null)"><b style="font-family:monospace;">B</b></button>
-  <button class="b12" onclick="changeColor()">🎨</button>
-    
-   
-    <button class="b12" onclick="document.execCommand('justifyLeft');"><</button>
-    
-        <button class="b12" onclick="document.execCommand('justifyCenter');">=</button>
-        
-        <button class="b12" onclick="document.execCommand('justifyRight');">></button>
-
-   
-
-      
-      
-
-      
-
-  <label style="font-size:13px" class="remove">Font Size:</label>
-
-        
-       <button class="b12"  onclick="document.execCommand('fontSize', false, '1')">Small</button>
-      <button class="b12" onclick="document.execCommand('fontSize', false, '3')">Default</button>
-             <button class="b12"  onclick="document.execCommand('fontSize', false, '5')">Medium</button>
- <button class="b12"  onclick="document.execCommand('fontSize', false, '6')">Big</button>
-    <button class="b12"  onclick="document.execCommand('fontSize', false, '18')">Huge</button>
-
-       <button class="b12" onclick="adjustFontSize(-6)">-</button>
-       <button class="b12" onclick="adjustFontSize(6)">+</button>
-
-    
-  
-
-   
-    
-      
-      <select onchange="formatText('fontName', this.value)" id="fontchanger" class="fontchanger">
-        <option value="Rubik">Font</option>
-            <option value="Arial" style="font-family:Arial;">Arial</option>
-            <option value="Times New Roman" style="font-family:Times New Roman;">Times New Roman</option>
-            <option value="Courier New" style="font-family:Courier New;">Courier New</option>
-                <option value="Verdana" style="font-family:Verdana;">Verdana</option>
-                                <option value="Georgia" style="font-family:Georgia;">Georgia</option>
-                                   <option value="Garamond" style="font-family:Garamond;">Garamond</option>
-                                   
-                                            <option value="Tahoma" style="font-family:Tahoma;">Tahoma</option>
-                                
-                                
-                                   <option value="Roboto" style="font-family:'Roboto', sans-serif;">Roboto</option>
-                                   <option value="Happy Monkey" style="font-family:'Happy Monkey', sans-serif;">Happy Monkey</option>
-                                           <option value="Silkscreen" style="font-family:'Silkscreen', sans-serif;">Silkscreen</option>
-                                                   <option value="Permanent Marker" style="font-family:'Permanent Marker', sans-serif;">Permanent Marker</option>
-                                                           <option value="Lilita One" style="font-family:'Lilita One', sans-serif;">Lilita One</option>
-                                     <option value="VT323" style="font-family:'VT323', sans-serif;">VT323</option>
-                                     
-                                          <option value="Poppins" style="font-family:'Poppins', sans-serif;">Poppins</option>
-                                          
-                                               <option value="Fascinate Inline" style="font-family:'Fascinate Inline', sans-serif;">Fascinate Inline</option>
-                                   
-                                  
-                                                                            
-                                               <option value="Kumbh Sans" style="font-family:'Kumbh Sans', sans-serif;">Kumbh Sans</option>
-                                   
-                                              <option value="Pacifico" style="font-family:'Pacifico', sans-serif;">Pacifico</option>
-                                   
-                                       <option value="Abel" style="font-family:'Abel', sans-serif;">Abel</option>
-                                   
-                                      <option value="Lobster" style="font-family:'Lobster', sans-serif;">Lobster</option>
-          
-                                      <option value="Fira Sans" style="font-family:'Fira Sans';">Fira Sans</option>
-
-                                    <option value="Montserrat" style="font-family:'Montserrat';">Montserrat</option>
-   
-                         <option value="Mulish" style="font-family:'Mulish';">Mulish</option>
-
-          <option value="IBM Plex Sans" style="font-family:'IBM Plex Sans';">IBM Plex Sans</option>
-
-               <option value="Dosis" style="font-family:'Dosis';">Dosis</option>
-
-               <option value="Afacad Flux" style="font-family:'Afacad Flux';">Afacad Flux</option>
-
-               <option value="Sora" style="font-family:'Sora';">Sora</option>
-
-          
-          
-
-                                   
-                                  
-                                   
-                                
-                           
-        </select>
-   
-  
-
-
-       <button class="navigationbutton" id="navigationbutton" onclick="toggleNavigation()">Hide navigation</button>
- 
-
-  <!--  </selected> -->
-  
-</div>
-
-     
-        </center>
-     
-
- 
- <center> <div class="toolbar2" id="insertmenu">
-
-      <selected> <input type="file" accept="image/*" onchange="previewImage(event)" id="uploadInput" style="display: none;" multiple>
-    <button class="b19" onclick="document.getElementById('uploadInput').click()">Upload Image</button>
-     
-        <select id="imageSelect" onchange="selectImage()">
-            <option value="-1">Selector</option>
-        </select>
-  
-        <input style="width:48px;" type="number" id="widthInput" placeholder="Width">
-        <input style="width:48px;" type="number" id="heightInput" placeholder="Height"></selected>
-  <selected><button class="b1" onclick="option0Function()">X</button></selected>
-   </div>      </center>
-      
-      <!--   <hr class="bold-gray"> -->
-
-           </div>
-         <style>
-        .sidebar-left {
-     width:105px;
-            overflow:scroll;
-            height:100vh;
-            float:left;
-            background:white;
-            }
-             #documentcode {
-                 width:97%;
-                 border:solid whitesmoke 2px;
-                 outline:none;
-                 height:55vh;
-                 border-radius:5px;
-             }
-
-             #documentcode:focus {
-                border:solid dodgerblue 2px;
-                 }
-
-             .tab {
-                 width:80%;
-                 padding-bottom:7px;
-                 padding-top:5px;
-                 cursor:pointer;
-              margin-top:10px;
-                 background:white;
-                 transition:0s;
-                 border-radius:10px;
-                 }
-
-             .tab:hover {
-background:whitesmoke;
-                 }
-
-             .tab img {
-width:80%;
-                 }
-
-             .page {
-
-             display:none;
-                 }
-
-             .tab span {
-font-family:verdana;
-                 font-size:18px;
-                 }
-
-             .page-container {
-      width:242px;
-      margin-right:0px;
-                 overflow:scroll;
-                 padding:20px;
-                 padding-bottom:0px;
-                 margin-top:10px;
-                 margin-left:10px;
-                 display:none;
-                 border-radius:25px;
-                 height:70vh;
-                 float:left;
-                 background:white;
-                 }
-
-             .page-title {
-           font-size:24px;
-                 font-family:verdana;
-                 }
-
-             .close-page {
-float:right;
-                 width:30px;
-                 border-radius:10px;
-             height:30px;
-                 background:tomato;
-                 border:none;
-                 font-weight:bold;
-                 color:white;
-             font-family:verdana;
-                 outline:none;
-                 transition:0.3s;
-                 
-                 }
-
-    
-             
-
-             .add-button {
-                  width:98%;
-                 background:white;
-                 border:solid whitesmoke 2px;
-                 transition:0.3s;
-                 margin-top:5px;
-                 text-align:center;
-                 padding:10px;
-                 font-family:verdana;
-                 font-size:18px;
-                 border-radius:10px;
-                 outline:none;
-             }
-               .add-button2 {
-                 background:white;
-                 border:solid whitesmoke 2px;
-                 transition:0.3s;
-                 margin-top:5px;
-                   cursor:pointer;
-                 text-align:center;
-                 padding:5px;
-                 font-family:verdana;
-                 font-size:18px;
-                 border-radius:10px;
-                 outline:none;
-             }
-
-                 .add-button:hover, .add-button2:hover {
-       background:whitesmoke;
-                 }
-             .section {
- font-family:verdana;
-                 font-size:16px;
-                 }
-         
-             .close-page:hover {
-background:red;
-                 }
-         </style>
-     <div class="sidebar-left">
-         <center>
-       <a href="#top" style="text-decoration:none; color:black">  <div class="tab ripple-button" onclick="openPage('add');">
-             <img src="images/plus.png">
-             <span>Add</span>
-         </div>    </a>
-             
-       <!--      <div class="tab" onclick="shareJCDoc()">
-             <img src="icons/share.png">
-             <span>Share</span>
-         </div> -->
-
-            <a href="#top" style="text-decoration:none; color:black">    <div class="tab ripple-button" onclick="openPage('save-menu');">
-             <img src="images/save.png">
-             <span>Save</span>
-         </div> </a>
-
-
-                 <a href="#top" style="text-decoration:none; color:black">  <div class="tab ripple-button" onclick="openPage('code');">
-             <img src="images/code-icon.png">
-             <span>Code</span>
-         </div>
- </a>
-             
-
-       <a href="#top" style="text-decoration:none; color:black"><div class="tab ripple-button" onclick="openPage('settings-menu')">
-             <img src="images/settings.png">
-             <span>Settings</span>
-         </div></a>
-
-
-
-         </center>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-     </div>
-
-         <div class="page-container">
-             
-           <div id="add" class="page">
-               <span class="page-title">Add Elements</span><button onclick="closePage('add');" class="close-page">X</button>
-<br><br><center>
-            <!--   <button class="add-button" onclick="insertList()">List</button> -->
-        <button class="add-button ripple-button" onclick="insertLink()">Link</button>
-        <button class="add-button ripple-button" onclick="insertCheckbox()">Checkbox</button>
-     
-     <button class="add-button ripple-button" onclick="insertButton2()">Small Button</button>
-        <button class="add-button ripple-button" onclick="insertButton()">Medium Button</button>
-      <button class="add-button ripple-button" onclick="insertButton3()">Big Button</button>
-        <button class="add-button ripple-button" onclick="insertTable()">Table</button>
-      <button class="add-button ripple-button" onclick="insertImage()">Image</button>
-    <button class="add-button ripple-button" onclick="openPage('drawing'); loadDrawings()">Drawing</button>
-
-    </center>
-               
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-           </div>
-
-                <div id="drawing" class="page">
-               <span class="page-title">Insert Drawing</span><button onclick="closePage('drawing');" class="close-page">X</button>
-<br><br><center>
-         <div id="drawingContainer"></div>
-
-    </center>
-               
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-           </div>
-
-             
-
-                 <div id="code" class="page">
-               <span class="page-title">Code Editor</span><button onclick="closePage('add');" class="close-page">X</button>
-<br><br><center>
-        <textarea id="documentcode" spellcheck="false" onchange="updateDocumentCode()">Loading code...</textarea>
-
-   
-
-    </center>
-               
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-           </div>
-             
-
-             
-          
-             
-
-
-               <div id="save-menu" class="page">
-               <span class="page-title">Save Document</span><button onclick="closePage('save-menu');" class="close-page">X</button>
-               <br><br><center>
-                    <button class="add-button ripple-button" style="font-size:16px;" onclick="saveDoc4()">Save to Jamesy Creator</button>
-                   
-               <button class="add-button ripple-button" onclick="printContent2()">Export</button>
-                     
-                      <button class="add-button ripple-button" onclick="saveContent()">.jcdoc</button>
-                     <button class="add-button ripple-button" onclick="printContent2(true)">Print</button>
-                    <button class="add-button ripple-button" onclick="printContent2(true)">.pdf</button>
-    
-      
-
-    </center>
-                   
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-           </div>
-
-
-
-
-
-                 <div id="settings-menu" class="page">
-               <span class="page-title">Settings</span><button onclick="closePage('settings-menu');" class="close-page">X</button>
-<br><br><center>
-    <span class="section">Document padding</span>
-               <button class="add-button" onclick="padding1()">30px</button>
-        <button class="add-button" onclick="padding2()">15px (Default)</button>
-      <button class="add-button" onclick="padding4()">12px</button>
-        <button class="add-button" onclick="padding3()">5px</button>
-    <button class="add-button" onclick="padding5()">0px</button>
-<br><br>
-    <span class="section">Document Background</span>
-      <button class="add-button" onclick="docColor('white')">White</button>
-      <button class="add-button" onclick="docColor('red')">Red</button>
-    <button class="add-button" onclick="docColor('tomato')">Tomato</button>
-    <button class="add-button" onclick="docColor('orange')">Orange</button>
-    <button class="add-button" onclick="docColor('darkorange')">Dark Orange</button>
-    <button class="add-button" onclick="docColor('blue')">Blue</button>
-    <button class="add-button" onclick="docColor('dodgerblue')">Dodger Blue</button>
-    <button class="add-button" onclick="docColor('pink')">Pink</button>
-    <button class="add-button" onclick="docColor('purple')">Purple</button>
-    <button class="add-button" onclick="docColor('lime')">Lime</button>
-    <button class="add-button" onclick="docColor('green')">Green</button>
-    <button class="add-button" onclick="docColor('custom')">Other</button>
-    
-    
-
-    </center>
-               
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-           </div>
-
-             
-
-             
-             </div>
-         <div class="maindocument">
-
-
-<div id="contentDiv" class="doc" contenteditable>
-    
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
-</div>
-
-    
-<!--
-<div class="overlay" id="overlay">
-  <div class="overlay-content">
-    <div class="font">
-    <span class="close-btn" style="float:right;cursor:pointer;" onclick="closeOverlay()">X</span>
-    <h2>Settings</h2>
-    <k>Document size:</k><br>
-    <button onclick="documentNormal()">Default</button>
-    <button onclick="documentFull()">Full page</button>
-    <br><br>
-    <k>Document Background Color</k><br>
-                  <input type="color" id="bgcolor2" onchange="changeBG2()">
-                    <button onclick="bgChangeWhite()">White</button>
-                    <br><br>
-                   
-                    <br>
-                    <k>Document Padding</k><br>
-                    <button onclick="padding1()">30px</button>
-                         <button onclick="padding2()">15px (Default)</button>
-                              <button onclick="padding3()">5px</button>
-                               <button onclick="padding4()">12px</button>
-                               </div>
-</div>
-</div>
-    -->
-
-<div class="overlay2" id="overlay2">
-  <div class="overlay-content2">
-
-
-    <input autocorrect="off" autocomplete="off" type="email" class="filename" id="recipient-email" placeholder="Recipient's email">
-    
-    <iframe class="contacts" src="jamesycreatorcontacts.html"></iframe>
-    <br>
-  <p style="font-family:verdana;">Pro Tip: Upload your exported <br>PDF or draft jcdoc file<br> to your email!</p><div class="buttonfloat"><button class="button9" onclick="closeShare()">Cancel</button>
-  
-  <button class="button1" onclick="sendEmail()">Send via Gmail as ... Text / Plain</button></div>
-   
-</div>
-</div>
-
-
-   
-   
-   </div>
-   
-   <style>
-       .home-page-sidebar-left {
-              background:white;
-              width:300px;
-              height:100vh;
-           border-right:solid whitesmoke 1px;
-           border-top:none;
-           border-radius:0px 0px 10px 0px;
-       border-left:none;
-           border-bottom:none;
-              float:left;
-           }
-       .title-container {
-           margin-top:20px;
-           width:100%;
-           padding-top:30px;
-           padding:20px;
-           display:flex;
-           }
-       .home-page-title {
-color:#53595d;
-           
-           font-family:"Poppins";
-           
-           font-size:22px;
-           margin-top:8px;
-           }
-       .title-img {
-             width:50px;
-           cursor:pointer;
-           margin-right:10px;
-           height:50px;
-        
-           }
-
-       .delete-document-button-file-list {
-              font-family:"Mulish";
-           padding:5px;
-           transition:0s;
-           border:none;
-           float:right;
-           margin-right:10px;
-           font-size:16px;
-           opacity:0;
-           border-radius:5px;
-           display:inline-block;
-           
-           background:tomato;
-           color:white;
-           
-           }
-
-       .delete-document-button-file-list:hover {
-          background:red;
-           
-}
-
-       .home-page-nav-button {
-           font-family:"Mulish";
-           text-align:left;
-           border:none;
-           padding:10px;
-           font-size:18px;
-           transition:0s;
-           padding-left:20px;
-           width:100%;
-      background:transparent;
-
-           }
-
-       .home-page-nav-button:hover {
-background:whitesmoke;
-           }
-
-       .nav-buttons-container {
-       width:100%;
-       }
-       .pointer {
-       cursor:pointer;
-           }
-       
-
-       .home-page-nav {
-      width:100%;
-           padding-top:11px;
-           padding-left:none;
-           padding-right:none;
-           border-right:none;
-           border-top:none;
-           border-bottom:solid whitesmoke 1px;
-           border-left:solid whitesmoke 1px;
-           background:white;
-           height:50px;
-           }
-
-       
-       #fileList li:hover .delete-document-button-file-list {
-        opacity:1;
-           transition:0s;
-       
-           }
-       .nav-section-text {
-         font-family:"Poppins";
-           color:#9faaae;
-           margin-bottom:5px;
-           margin-left:25px;
-           font-weight:600;
-           font-size:14px;
-           display:inline-block;
-       }
-       .below-first3 {
-       margin-top:14px;
-       }
-       </style>
-   <div id="homePage">
-       <div class="home-page-sidebar-left">
-           <div class="title-container"> <img onclick="window.location.href = 'index.html';" class="title-img" src="images/shapes.png"> <span onclick="window.location.href = 'index.html';" class="home-page-title pointer">Jamesy Creator</span></div>
-
-        <span class="nav-section-text">DOCS</span>
-             
-               <button class="home-page-nav-button ripple-button" onclick="newDocument()">New document</button>
-
-           <button class="home-page-nav-button ripple-button" onclick="loadContent()">Import document</button>
-
-
-           <span class="nav-section-text below-first3">JAMESY CREATOR</span>
-
-<!-- <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'index.html';">
-  Dashboard
-</button>
-       -->     
-           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/jamesy-creator-docs';">Docs</button>
-
-           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/jamesy-creator-drawings/';">Drawings</button>
-
-            <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/text-editor/';">Code</button>
-
-           <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'https://jamesy-tech.github.io/creative-toolbox/';">Creative Toolbox</button>
-           
-                 <span class="nav-section-text below-first3">OTHER</span>
-
-              <button class="home-page-nav-button ripple-button" onclick="window.location.href = 'settings.html';">Settings</button>
-
-                <button class="home-page-nav-button ripple-button" onclick="quit()">Quit</button>
-           
-       </div>
-   
-   <div class="home-page-nav">  <center><input class="searchdocs" id="search" autocomplete="off" placeholder="Search documents">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
-
-       </div>
-       
-     <style>
-       .searchdocs {
-         padding:10px;
-           width:60%;
-         border-radius:50px;
-         outline:none;
-           margin-top:0px;
-         height:18px;
-         font-family:"Mulish";
-         padding-left:20px;
-        background:whitesmoke;
-           color:black;
-        border:none;
-       }
-         .searchdocs:focus {
-           
-         }
-
-
-         
-        .drawing-card {
-            border:solid whitesmoke 2px;
-            margin:5px;
-            cursor:pointer;
-            background:white;
-            font-family:"Mulish";
-            transition:0.3s;
-            }
-
-         .drawing-card:hover {
-               background:whitesmoke;
-             }
-
-         
-     </style>
-    
-   
-    
-
-<center>
-    <div id="fileList">
-    
-    </div>
-
-    <input type="file" id="fileInput" style="display: none;" accept=".jcdoc" onchange="loadDoc()">
-
-</center>
-   
-   </div>
-   
-
-
-   <script>
-
-  function quit() {
-    window.close()
-    setTimeout(() => {
-       window.location.href = "https://jamesy-tech.github.io/jamesy-creator/";
-    }, 100);
-  }
-    
-            
-
-function loadDrawings() {
-    const container = document.getElementById('drawingContainer');
-    container.innerHTML = '';
-
-    for (let key in localStorage) {
-        if (key.startsWith('drawing_')) {
-            const drawingName = key.replace('drawing_', '');
-            const imageData = localStorage.getItem(key);
-
-            const card = document.createElement('div');
-            card.className = 'drawing-card';
-            card.innerHTML = `<p>${drawingName}</p><img src="${imageData}" style="max-width: 200px; height: auto;">`;
-            card.onclick = () => insertDrawing(imageData);
-            container.appendChild(card);
-        }
-    }
-}
-
-function insertDrawing(imageData) {
-    const widthInput = prompt("Drawing size | Type fill for 100% width");
-    if (widthInput !== null) {
-        const editableDiv = document.getElementById('contentDiv');
-        const img = document.createElement('img');
-        img.src = imageData;
-
-        const trimmedWidth = widthInput.trim();
-        const lowerCaseWidth = trimmedWidth.toLowerCase();
-
-        if (lowerCaseWidth === "fill") {
-            img.style.width = "100%";
-        } else if (lowerCaseWidth.endsWith("px") || lowerCaseWidth.endsWith("%")) {
-            img.style.width = lowerCaseWidth;
-        } else {
-            const parsedWidth = parseInt(trimmedWidth);
-            if (!isNaN(parsedWidth) && parsedWidth >= 1) {
-                img.style.width = parsedWidth + "px";
-            } else {
-                alert("Invalid width");
-                return;
-            }
-        }
-
-        editableDiv.appendChild(img);
-    }
-}
-                 
-loadDrawings();
-                 
-
-
-
-                 function insertImage() {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*';
-
-    fileInput.addEventListener('change', function() {
-        const file = this.files[0];
-
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-
-            reader.onload = function(event) {
-                const imageUrl = event.target.result;
-
-                const widthInput = prompt("Image size | Type 'fill' for 100% width");
-                if (widthInput !== null) {
-                    const editableDiv = document.getElementById('contentDiv');
-                    const img = document.createElement('img');
-                    img.src = imageUrl;
-
-                    const trimmedWidth = widthInput.trim();
-                    const lowerCaseWidth = trimmedWidth.toLowerCase();
-
-                    if (lowerCaseWidth === "fill") {
-                        img.style.width = "100%";
-                    } else if (lowerCaseWidth.endsWith("px") || lowerCaseWidth.endsWith("%")) {
-                        img.style.width = lowerCaseWidth;
-                    } else {
-                        const parsedWidth = parseInt(trimmedWidth);
-                        if (!isNaN(parsedWidth) && parsedWidth >= 1) {
-                            img.style.width = parsedWidth + "px";
-                        } else {
-                            alert("Invalid width");
-                            return;
-                        }
-                    }
-
-                    editableDiv.appendChild(img);
-                }
-            };
-            reader.readAsDataURL(file);
-        } else if (file) {
-            alert("Invalid file type. Please select an image file.");
-        }
-    });
-    fileInput.click();
-}
-
-                 
-                 function toggleMenu222() {
-                     
-                     var img = document.getElementById("apps-icon");
-      
-    document.getElementById("menu2").classList.toggle("show2");
-//img.src = "images/animatedshapes.gif";
-img.src = "images/shapes.png";
-                     setTimeout(() => {
-    img.src = "images/shapes.png";
-}, 980);
-
-
-                    
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn2')) {
-        let dropdowns = document.getElementsByClassName("dropdown-content2");
-        for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show2')) {
-                openDropdown.classList.remove('show2');
-            }
-        }
-    }
-}
-
-                 
-             </script>
-     
-<script>
-
-  
-
-      function buttonDropdown() {
-             document.getElementById("button-insert").textContent = "";
+          background:transparent;
+          border:none;
+          padding:6px;
+          padding-left:12px;
+          padding-right:12px;
+          cursor:pointer;
           
           }
-    function updateDocumentCode() {
-        var newcode = document.getElementById("documentcode").value;
-        var contentDiv = document.getElementById("contentDiv");
 
-        contentDiv.innerHTML = newcode;
-    }
+      #editorToolbar button:hover {
 
-    function loadDocumentCode() {
-            var oldcode = document.getElementById("contentDiv").innerHTML;
-            var codeDiv = document.getElementById("documentcode");
+          background:whitesmoke;
 
-            codeDiv.value = oldcode;
-           
-        }
-
-    loadDocumentCode();
-    
-function docColor(color) {
-    if (color === "custom") {
-        color = prompt("Enter a color");
-    }
-
-    let contentDiv = document.getElementById("contentDiv");
-    if (contentDiv) {
-        contentDiv.style.backgroundColor = color;
-    } else {
-        console.error("Element with ID 'contentDiv' not found.");
-    }
-}
-
-
-    function closePage(pageId) {
- document.getElementById(pageId).style.display = "none";
-            document.querySelectorAll('.page-container').forEach(el => el.style.display = 'none');
-        }
-
-    
-    function openPage(pageId) {
-
-         document.querySelectorAll('.page').forEach(el => el.style.display = 'none');
+          }
+      
+      .menu-bar button:hover {
+        /* color:dodgerblue; */
+          background:whitesmoke;
         
- document.getElementById(pageId).style.display = "block";
-         document.querySelectorAll('.page-container').forEach(el => el.style.display = 'block');
+          }
 
-   
+      .overview_title {
+            font-size:34px;
+          font-family:"Lato";
+          display:block;
+          margin-bottom:15px;
+          margin-top:16px;
+          
+          }
 
-        
-        }
-    
-     const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('type') === 'no-nav') {
-    document.querySelectorAll('.top-editors').forEach(el => el.style.display = "none");
-}
-
-
-function setPlaceholderBasedOnWidth() {
-    const input = document.getElementById("search");
-    if (window.innerWidth < 1000) {
-        input.placeholder = "Search";
-    } else {
-        input.placeholder = "Search documents";  // Clear the placeholder if screen width is 1000px or more
-    }
-}
-
-setPlaceholderBasedOnWidth();
-
-window.addEventListener("resize", setPlaceholderBasedOnWidth);
-
-
- /*  function myFunction() {
-  var selectedOption = document.getElementById("mySelect").value;
-  
-  
- By the way, this script won't work if you uncomment this, you need to change the functions it does first becuase I renamed them
- 
-  if(selectedOption === "option1") {
-    
-    option1Function();
-    
-  } else if(selectedOption === "option2") {
-    
-    option2Function();
-    
-  } else if(selectedOption === "option3") {
-
-    option3Function();
-    
-   } else if(selectedOption === "option0") {
-
-    option0Function();
-    
-  } else if(selectedOption === "option4") {
-
-    insertCheckbox();
-    
-  }  else if(selectedOption === "option6") {
-
-    insertButton();
-    
-  } else if(selectedOption === "option7") {
-
-    insertTable();
-    
-  }
-  else if(selectedOption === "option5") {
-
-    insertLink()
-     document.getElementById("mySelect").value = "option0";
-  }
-}
-
-    */
+      #overviewList {
+         list-style-type:none;
      
-function insertLink() {
-      // Ask for the link text and URL
-      let linkText = prompt("Enter the text for the link:");
-      let linkURL = prompt("Enter the URL for the link:", "https://");
+          }
 
-      if (linkText && linkURL) {
-        // Insert the link into the contenteditable div
-        let editor = document.getElementById("contentDiv");
-        editor.focus();
+      #overviewList li {
+         display:block;
+          width:99%;
+      
+          
+          }
 
-        // Create the link HTML
-        let link = `&nbsp;<span class="link" contenteditable="true" onclick="openTab('${linkURL}');" target="_blank" contenteditable="false">${linkText}</span> &nbsp;`;
+      #overviewList li a {
 
-        // Insert the link at the current cursor position
-        document.execCommand("insertHTML", false, link);
+          display:block;
+          width:99%;
+          margin:5px;
+          background:whitesmoke;
+          padding:10px;
+          
+
+           color:black;
+          text-decoration:none;
+}
+
+      #overviewList li a:hover {
+             background:#dbeffa !important;
+          }
+
+      
+    .sidebar {
+        width: 225px; background: white; overflow-y: auto; border-right: 1px solid whitesmoke;
+        display:block;
+    }
+      
+    .sidebar h3 {
+        padding: 10px; font-size: 14px; color: black; 
+    }
+      
+    .sidebar ul {
+        list-style: none; padding: 0 10px;
+    }
+      
+    .sidebar li {
+        margin-bottom: 4px; 
+    }
+    
+      .sidebar a {
+          display: block; padding: 6px; color: black; text-decoration: none; border-radius: 4px;
       }
-    }
-    
-       function insertCheckbox() {
-           // document.getElementById("mySelect").value = "option0";
-            const checkboxHTML = '<span class="checkbox"><input type="checkbox" value=""></span>';
-            const div = document.getElementById("contentDiv");
-            insertAtCaret(checkboxHTML, div);
-           
-        }
-
-
-        function insertList2() {
-           // document.getElementById("mySelect").value = "option0";
-            const checkboxHTML = '<li>Hi</li>';
-            const div = document.getElementById("contentDiv");
-            insertAtCaret(checkboxHTML, div);
-           
-        }
-
-
-    
-    function insertButton() {
-      //  document.getElementById("mySelect").value = "option0";
-        
-     const text = prompt("Enter the text for the button", "Edit me!");
-        const link = prompt("Enter the URL for when the button is clicked", "https://");
-   
-    if (link) {
-        const checkboxHTML = `&nbsp;<button style="font-size:15px;" class="add-button2" onclick="openTab('${link}')" class="insertedbutton"> ${text}</button>&nbsp;`;
-        const div = document.getElementById("contentDiv");
-        insertAtCaret(checkboxHTML, div);
-        
-    }
+      
+   .sidebar a.active {
+  background: #dbeffa !important; 
+  color: dodgerblue !important; 
+  font-weight: bold !important; 
 }
 
-
-
-     function insertButton2() {
-      //  document.getElementById("mySelect").value = "option0";
-        
-     const text = prompt("Enter the text for the button", "Edit me!");
-        const link = prompt("Enter the URL for when the button is clicked", "https://");
-   
-    if (link) {
-        const checkboxHTML = `&nbsp;<button style="padding:4px;font-size:14px;" class="add-button2" onclick="openTab('${link}')" class="insertedbutton"> ${text}</button>&nbsp;`;
-        const div = document.getElementById("contentDiv");
-        insertAtCaret(checkboxHTML, div);
-        
-    }
+.sidebar a:not(.active):hover {
+  background: whitesmoke;
+  color: black;
+  font-weight: normal;
 }
 
-    
-     function insertButton3() {
-      //  document.getElementById("mySelect").value = "option0";
-        
-     const text = prompt("Enter the text for the button", "Edit me!");
-        const link = prompt("Enter the URL for when the button is clicked", "https://");
-   
-    if (link) {
-        const checkboxHTML = `&nbsp;<button style="padding:10px;font-size:18px;" class="add-button2" onclick="openTab('${link}')" class="insertedbutton"> ${text}</button>&nbsp;`;
-        const div = document.getElementById("contentDiv");
-        insertAtCaret(checkboxHTML, div);
-        
-    }
-}
-
-
-    
-    
-
-   function insertTable() {
-    const size = prompt("What size do you want your table to be? (e.g 4 x 3, 6 x 9)", "4 x 3");
-  // document.getElementById("mySelect").value = "option0";
-
-    // Parse the user input for rows and columns
-    const [rows, cols] = size.split(" x ").map(Number);
+    .content-area { flex: 1; position: relative; padding: 10px; overflow: auto; }
+    #editor { width: 100%; height: 90vh; overflow-y:scroll; overflow-x:hidden; background: white; color: black; caret-color: black; padding: 10px; outline: none; overflow: auto; white-space: pre-wrap; word-break: break-word; }
   
-    let tableHTML = '<table border="1" style="border-collapse: collapse; width: 100%;">';
-    
-    // Loop to create table rows and columns dynamically
-    for (let i = 0; i < rows; i++) {
-        tableHTML += "<tr>";
-        for (let j = 0; j < cols; j++) {
-            tableHTML += `<td style="border: solid black 1px; background: transparent; padding: 20px;">Cell ${i * cols + j + 1}</td>`;
-        }
-        tableHTML += "</tr>";
+    .status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: whitesmoke;
+  color:black;
+  padding: 4px 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.chrome-alert-box {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 24px;
+  width: 360px;
+  z-index: 9999;
+  display: none;
+  font-family: "Mulish", sans-serif;
+  animation: fadeIn 0.15s ease;
+  color: black;
+}
+
+.chrome-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: black;
+}
+
+.chrome-options {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+}
+
+.chrome-options li {
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+  user-select: none;
+  font-size: 14px;
+    text-style-type:none;
+  color: black;
+}
+
+.chrome-options li.selected {
+  background-color: #834424;
+    text-style-type:none;
+  color: white;
+  font-weight: 600;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+      
+
+      .confirm {
+          padding:5px; 
+          width:90px;
+         float:right;
     }
 
-    tableHTML += "</table>";
+      @media (max-width:800px) {
+       .sidebar { display:none; }
+          #menuBtn { 
+       display:block;
+              }
+          }
 
-    const div = document.getElementById("contentDiv");
-    insertAtCaret(tableHTML, div);
+      @media (min-width:800px) {
+    .sidebar { display:block !important; }
+
+          #menuBtn { 
+       display:none;
+              }
+          
+          }
+      
+
+      #fontSelector, #sizeSelector {
+  padding: 4px 6px;
+  border: 1px solid whitesmoke;
+  border-radius: 0px;
+  font-size: 14px;
+          border-top:none;
+          border-bottom:none;
+  background: white;
+  cursor: pointer;
+          outline:none;
 }
 
-   
+      
+  </style>
+</head>
+<body>
+  <div class="menu-bar">
+       <button onclick="toggleMenu()" id="menuBtn">&#9776;</button>
+    <button onclick="newDoc()">New</button>
+    <button onclick="showOptions()" id="exportBtn">Save/Export</button>
     
-function openTab(link) {
-    window.open(link);
-}
+      <button onclick="loadContent()" id="openBtn">Open</button>
+    <button onclick="closeDoc()" id="closeBtn">Close</button>
+    <button onclick="deleteDoc()" id="deleteBtn">Delete</button>
+  </div>
+  <div style="display: flex; flex: 1;">
+    <div class="sidebar" id="sidebar">
+      <h3>Docs</h3>
+      <ul id="docList"></ul>
+    </div>
+    <div class="content-area" id="contentArea"></div>
+  </div>
+  <div class="status-bar">
+    <span id="statusName">My creations</span>
+    <span id="statusMsg"></span>
+  </div>
 
-
-        function insertAtCaret(html, element) {
-            // Focus on the editable div
-            element.focus();
-            // Check if the selection and range APIs are supported
-            if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
-                const range = window.getSelection().getRangeAt(0);
-                const fragment = document.createRange().createContextualFragment(html);
-                range.deleteContents(); // Remove selected content if any
-                range.insertNode(fragment); // Insert the HTML fragment
-            }
-        }
-
-
-     
-
-function option1Function() {
-  // Add your functionality for Option 1 here
-document.getElementById("insertmenu").style.display = "block";
- // document.getElementById("mySelect").value = "option0";
-}
-
-function insertList() {
-    insertList2()
-  //var div = document.getElementById("contentDiv");
-//  var newItem = document.createElement("li");
- // var textNode = document.createTextNode("List item");
-//  newItem.appendChild(textNode);
-//  div.appendChild(newItem);
-  
- 
-//    document.getElementById("mySelect").value = "option0";
-}
-function option4Function() {
-
- 
-    document.getElementById("mySelect").value = "option0";
-}
-
-
-function insertLine() {
-  var div = document.getElementById("contentDiv");
-  var newItem = document.createElement("hr");
-  var textNode = document.createTextNode("");
-  newItem.appendChild(textNode);
-  div.appendChild(newItem);
-  
-  
-// document.getElementById("mySelect").value = "option0";
-}
-function option0Function() {
- document.getElementById("insertmenu").style.display = "none";
- // document.getElementById("mySelect").value = "option0";
-}
-
-    
-
-
-document.getElementById("search").focus();
-
-function getSearchParam(param) {
-// Function to get URL search parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Function to filter the list based on search input
-function filterList(input) {
-    const listItems = document.querySelectorAll('#fileList li');
-    listItems.forEach(function(item) {
-        if (item.textContent.toLowerCase().includes(input.toLowerCase())) {
-            item.style.display = '';  // Show the item
-        } else {
-            item.style.display = 'none';  // Hide the item
-        }
-    });
-}
-
-function toggleNavigation() {
-    var toolbar = document.getElementById("mainnav");
-    var button = document.getElementById("navigationbutton");
-
-    if (toolbar && button) {
-        var isVisible = toolbar.style.display === "block" || toolbar.style.display === "";
-        toolbar.style.display = isVisible ? "none" : "block";
-        button.textContent = isVisible ? "Show navigation" : "Hide navigation";
-    }
-}
+    <input type="file" id="fileInput" style="display: none;">
 
 
 
+<div id="chromePrompt" class="chrome-alert-box" style="display:none;">
+  <div class="chrome-header">Choose how to save the document:</div>
+  <ul class="chrome-options">
+    <li>Save to Jamesy Creator</li>
+    <li>Download as a .jcdoc</li>
+       <li>Save as a .pdf</li>
+      <li>Print</li>
 
-function filterOnLoad() {
-    const searchTerm = getSearchParam('q');
-    const searchTerm2 = getSearchParam('docName');
-    
-    if (searchTerm) {
-        const searchInput = document.getElementById('search');
-        searchInput.value = searchTerm;
-        filterList(searchTerm);
-    } else if (searchTerm2) {
-        const searchInput = document.getElementById('search');
-        searchInput.value = searchTerm2;
-        filterList(searchTerm2);
-    }
-}
+  </ul>
 
-// Trigger filtering when the page loads
-window.onload = function() {
-    filterOnLoad();
-};
-
-
-
-
+    <button class="confirm" onclick="confirmChoice()">OK</button>
+</div>
 
 
     
-// Add event listener for input filtering
-document.getElementById('search').addEventListener('input', function() {
-    const input = document.getElementById('search').value;
-    filterList(input);  // Filter the list based on user input
-});
-
-  </script>
+    
   <script>
 
-        
-function newDocument() {
-setTimeout(() => {
-  documentEditor()
-  document.getElementById("filename").value = "Untitled Document";
-   document.getElementById("saveValue").textContent = "Not Saved";
-  document.getElementById("contentDiv").innerHTML = "";
-
-      }, 300);
-}
-   
-loadFileList()
-
-        function saveDoc() {
-            const filename = document.getElementById("filename").value;
-            const content = document.getElementById('contentDiv').innerHTML;
-
-            // Validate filename
-            if (!filename) {
-                alert("Please enter a filename.");
-                return;
-            }
-
-            // Get existing documents from localStorage
-            let documents = JSON.parse(localStorage.getItem("documents")) || {};
-
-            // Save to localStorage
-            documents[filename] = content;
-            localStorage.setItem("documents", JSON.stringify(documents)); // Save updated documents
-            loadFileList(); // Refresh file list
-
-            // Create a downloadable .jcdoc file
-            const blob = new Blob([content], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-                document.getElementById("saveValue").textContent = "Saved";
-            link.download = filename + ".jcdoc"; // Custom file extension
-            link.click();
-        }
-
-
-document.getElementById('contentDiv').addEventListener('keydown', function(event) {
-    if (event.key === 'Tab') {
-        event.preventDefault(); // Prevent the default tab action
-        document.execCommand('insertText', false, '    '); // Insert 4 spaces (or a tab character)
+      function toggleMenu() {
+  const sidebar = document.querySelector(".sidebar");
+  if (sidebar) {
+    if (sidebar.style.display === "block") {
+      sidebar.style.display = "none";
+    } else {
+      sidebar.style.display = "block";
     }
-});
-   function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Show the popup if 'open' parameter is 'create'
-        document.addEventListener('DOMContentLoaded', function() {
-            if (getQueryParam('id') === 'editor') {
-                documentEditor()
-            }
-              else if (getQueryParam('id') === 'home') {
-                homePage()
-            }
-        });
-        
-        
-  function saveDoc2() {
-            const filename = document.getElementById("filename").value;
-            const content = document.getElementById('contentDiv').innerHTML;
-
-            // Validate filename
-            if (!filename) {
-                alert("Please enter a filename.");
-                return;
-            }
-
-            // Get existing documents from localStorage
-            let documents = JSON.parse(localStorage.getItem("documents")) || {};
-
-            // Save to localStorage
-            documents[filename] = content;
-                document.getElementById("saveValue").textContent = "Saved";
-            localStorage.setItem("documents", JSON.stringify(documents)); // Save updated documents
-            loadFileList(); // Refresh file list
-
-           homePage()
-        }
-          function saveDoc3() {
-            const filename = document.getElementById("filename").value;
-            const content = document.getElementById('contentDiv').innerHTML;
-
-            // Validate filename
-            if (!filename) {
-                alert("Please enter a filename.");
-                return;
-            }
-
-            // Get existing documents from localStorage
-            let documents = JSON.parse(localStorage.getItem("documents")) || {};
-
-            // Save to localStorage
-            documents[filename] = content;
-                document.getElementById("saveValue").textContent = "Saved";
-            localStorage.setItem("documents", JSON.stringify(documents)); // Save updated documents
-            loadFileList(); // Refresh file list
-
-        
-        }
-        
-         function saveDoc4() {
-            const filename = document.getElementById("filename").value;
-            const content = document.getElementById('contentDiv').innerHTML;
-
-            // Validate filename
-            if (!filename) {
-                alert("Please enter a filename.");
-                return;
-            }
-
-            // Get existing documents from localStorage
-            let documents = JSON.parse(localStorage.getItem("documents")) || {};
-
-            // Save to localStorage
-            documents[filename] = content;
-            localStorage.setItem("documents", JSON.stringify(documents)); // Save updated documents
-            loadFileList(); // Refresh file list
-                document.getElementById("saveValue").textContent = "Saved";
-            alert("Document saved.")
-
-        
-        }
-
-        function loadDoc() {
-          
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const content = e.target.result;
-                document.getElementById('contentDiv').innerHTML = content; // Set content back to div
-            };
-            reader.readAsText(file); // Read the file as text
-        }
-
-  function loadFileList() {
-    const fileList = document.getElementById('fileList');
-    fileList.innerHTML = ''; 
-
-    const documents = JSON.parse(localStorage.getItem("documents")) || {};
-
-    for (const filename in documents) {
-        const listItem = document.createElement('li');
-
-        
-        const fileSpan = document.createElement('span');
-        fileSpan.textContent = filename;
-        listItem.onclick = function() {
-setTimeout(() => {
-               const content = documents[filename];
-            document.getElementById('contentDiv').innerHTML = content;
-            document.getElementById("filename").value = filename;
-            documentEditor(); 
-
-    }, 300);
-            
-}
-        fileSpan.style.cursor = 'pointer';
-        fileSpan.onclick = function() {
-           setTimeout(() => {
-            const content = documents[filename];
-            document.getElementById('contentDiv').innerHTML = content; // Load content into div
-            document.getElementById("filename").value = filename; // Set input field with filename
-            documentEditor();
-
-           }, 300);
-        };
-        
-        // Create delete button
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.classList.add('delete-document-button-file-list');
-        deleteButton.style.marginLeft = '10px';
-        deleteButton.onclick = function() {
-            delete documents[filename]; // Remove file from storage object
-            localStorage.setItem("documents", JSON.stringify(documents)); // Save updated storage
-            loadFileList();
-            homePage();
-            setTimeout(homePage, 50);
-            setTimeout(homePage, 100);
-            setTimeout(homePage, 500);
-        };
-        
-        listItem.appendChild(fileSpan);
-        listItem.appendChild(deleteButton);
-        fileList.appendChild(listItem);
-    }
-
-    loadDocumentCode();
-}
-
-
-
-
-   
-       function checkLockStatus() {
-    const isLocked = localStorage.getItem("locked");
-    if (isLocked === "true") {
-
-        window.location.href = "loginback.html";
-    }
-}
-
-
-checkLockStatus();
-
-
-setInterval(checkLockStatus, 6000);
-
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'q') {
-        window.location.href = 'loginback.html?path=lock';
-    }
-});
-
-
-
-
- function setupAutoSave() {
-    const autoSaveEnabled = localStorage.getItem("autoSave") === "true";
-    const editor = document.getElementById('contentDiv');
-    const filenameInput = document.getElementById("filename");
-    const saveValueDisplay = document.getElementById("saveValue");
-
-    if (!editor || !filenameInput || !saveValueDisplay) {
-        console.error("Required elements not found in the DOM");
-        return; // Exit if elements are not found
-    }
-
-    editor.addEventListener('input', function() {
-        if (autoSaveEnabled) {
-            if (filenameInput.value === 'Untitled Document') {
-                // Do nothing if the filename is "Untitled Document"
-                return;
-            } else {
-                saveValueDisplay.textContent = "Saving...";
-
-                // Simulate saving delay
-                setTimeout(() => {
-                    saveValueDisplay.textContent = "Saved";
-                    saveDoc3(); // Call the save function
-                }, 2300);
-            }
-        } else {
-            saveValueDisplay.textContent = "Not Saved";
-        }
-    });
-}
-
-
-// Call setupAutoSave to initialize the functionality
-setupAutoSave();
-
-
-
-
-
-
-
-/*
-
-          function updateOnlineStatus() {
-            const noInternetDiv = document.getElementById("internet");
-            if (!navigator.onLine) {
-               document.getElementById("offlinestatus").textContent = "Working offline";
-                       document.getElementById("share").title = "Cannot share offline";
-               document.getElementById("share").disabled = true;
-        
-                noInternetDiv.style.display = "block";
-            } else {
-                noInternetDiv.style.display = "none";
-                         document.getElementById("share").disabled = false;
-                               document.getElementById("share").title = "Share";
-                  document.getElementById("offlinestatus").textContent = "";
-            }
-        }
-
-        
-
-
-        window.addEventListener('online', updateOnlineStatus);
-        window.addEventListener('offline', updateOnlineStatus);
-        
-        
-        updateOnlineStatus();
-
-      */
-        
-       function documentEditor() {
-       
-        
-       // document.getElementById("top-editors").style.display = "none";
-         document.getElementById("homePage").style.display = "none";
-                  document.getElementById("documentEditor").style.display = "block";
-                  document.getElementById("contentDiv").focus();
-
-           loadDocumentCode()
-
-      document.body.style.overflow = "hidden";
-      
-      setTimeout(() => {
-        updateTitle();
-      }, 500);
-      
-       }
-       
-               
-       function homePage() {
-         document.title = "Jamesy Creator Docs"
-          //  document.getElementById("top-editors").style.display = "flex";
-          
-         document.getElementById("homePage").style.display = "block";
-                  document.getElementById("documentEditor").style.display = "none";
-
-           document.body.style.overflow = "scroll";
-       }
-       
-       
-       function saveContent() {
-             document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')"; // New background image
-           setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-    }, 3500); // 3500 milliseconds
-    
-    
-         var filename = document.getElementById("filename").value;
-            const content = document.getElementById('contentDiv').innerHTML;
-            const blob = new Blob([content], { type: 'text/plain' }); // Create a Blob
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = filename + ".jcdoc"; // Custom file extension
-            link.click();
-        }
-
-
-function home() {
-  window.location.href = "../index.html";
-}
-        function loadContent() {
-          
-                    document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')"; // New background image
-           setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-    }, 3500); // 3500 milliseconds
-    
-    
-            documentEditor()
-            const fileInput = document.getElementById('fileInput');
-            fileInput.click();
-            fileInput.onchange = function(event) {
-                const file = event.target.files[0];
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const content = e.target.result;
-                    document.getElementById('contentDiv').innerHTML = content; // Set content back to div
-                };
-                reader.readAsText(file); // Read the file as text
-            };
-        }
-        
-        
-    window.addEventListener('DOMContentLoaded', () => {
-    const droppedContent = sessionStorage.getItem('jcdoc_content');
-    if (droppedContent) {
-   
-      document.getElementById('colors').style.backgroundImage = "url('loadingbar.gif')";
-      setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')";
-      }, 3500);
-
-   
-
-      document.getElementById('contentDiv').innerHTML = droppedContent;
-
-      sessionStorage.removeItem('jcdoc_content'); 
-
-      documentEditor()
-    }
-  });
-     
-        
-function openInNewWindow(url) {
-  
-            document.getElementById('colors').style.backgroundImage = "url('images/loadingbar.gif')"; // New background image
-           setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-    }, 2000); // 3500 milliseconds
-    
-    
-    
-    const width = 600;  // Set the desired width of the new window
-    const height = 800; // Set the desired height of the new window
-    const left = (screen.width / 2) - (width / 2); // Center the window horizontally
-    const top = (screen.height / 2) - (height / 2); // Center the window vertically
-
-    window.open(url, '_blank', `width=${width},height=${height},top=${top},left=${left},resizable=yes`);
-}
-
-function openInNewWindow2(url) {
-  
-       
-     
-       
-       document.getElementById('colors').style.backgroundImage = "url('images/loadingbar.gif')"; // New background image
-           setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-         loadFileList()
-       
-    }, 2000);
-    
-       setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-        loadFileList()
-    }, 6000);
-    
-    
-    
-    const width = 600;  // Set the desired width of the new window
-    const height = 800; // Set the desired height of the new window
-    const left = (screen.width / 2) - (width / 2); // Center the window horizontally
-    const top = (screen.height / 2) - (height / 2); // Center the window vertically
-
-    window.open(url, '_blank', `width=${width},height=${height},top=${top},left=${left},resizable=yes`);
- 
-}
-
-
-  const titleInput = document.getElementById('filename');
-
-     
-        function updateTitle() {
-            const inputValue = titleInput.value; // Get the current value of the input
-            document.title = `${inputValue} | Document Editor | Jamesy Creator`;
-        }
-
-
-        titleInput.addEventListener('input', updateTitle);
-
-
-
-
- function adjustFontSize(sizeChange) {
-            // Get the current selection
-            const selection = window.getSelection();
-            const range = selection.getRangeAt(0);
-
-            if (selection.rangeCount > 0) {
-                // Get the selected text
-                const selectedText = range.toString();
-
-                // Create a new span element with adjusted font size
-                const span = document.createElement('span');
-                span.style.fontSize = 'inherit'; // Start with inherited size
-                span.textContent = selectedText;
-
-                // Insert the span element
-                range.deleteContents();
-                range.insertNode(span);
-
-                // Adjust the font size
-                const currentSize = window.getComputedStyle(span).fontSize;
-                const currentSizeValue = parseFloat(currentSize);
-                span.style.fontSize = (currentSizeValue + sizeChange) + 'px';
-
-                // Collapse the selection
-                selection.removeAllRanges();
-            }
-        }
-        
-        
-function padding1() {
-  document.getElementById('contentDiv').style.padding = "30px";
-}
-function padding2() {
-  document.getElementById('contentDiv').style.padding = "15px";
-}
-function padding3() {
-  document.getElementById('contentDiv').style.padding = "5px";
-}
-
-      function padding5() {
-  document.getElementById('contentDiv').style.padding = "0px";
-}
-      
-function padding4() {
-  document.getElementById('contentDiv').style.padding = "12px";
-}
-
- function openShare() {
- 
-   document.getElementById('overlay2').style.display = "block";
-
-    
-  }
-  
-   function closeShare() {
-
-   document.getElementById('overlay2').style.display = "none";
-
-    
-  }
-    function createEmail() {
-        const content = document.getElementById('contentDiv').innerHTML; // Get full HTML content
-        const subject = encodeURIComponent('Content to Share');
-        const body = encodeURIComponent(content.replace(/%/g, '%25')); // Handle special characters
-
-        // Note: `mailto:` may not properly handle HTML content in the body.
-        const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-        window.location.href = mailtoLink;
-    }
-
-
-    function sendEmail() {
-        const recipientEmail = document.getElementById('recipient-email').value;
-        const title = document.getElementById('filename').value;
-        const content = document.getElementById('contentDiv').innerText; // Get full HTML content
-        const subject = encodeURIComponent(title || 'Shared a Jamesy Creator document with you'); // Default to 'Content to Share' if no title is provided
-        const body = encodeURIComponent(content.replace(/%/g, '%25')); // Handle special characters
-
-        if (recipientEmail) {
-            // Construct mailto link (note: email clients may not fully support HTML in body)
-            const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-            window.open(mailtoLink);
-            document.getElementById('recipient-email').value = ''; // Clear the email input field
-            document.getElementById('filename').value = ''; // Clear the filename input field
-           
-            
-        } else {
-           window.open("error1.html");
-        }
-    }
-    
- function previewImage(event) {
-            const editor = document.getElementById('contentDiv');
-
-            Array.from(event.target.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const img = new Image();
-                    img.src = e.target.result;
-                    img.onload = function() {
-                        const resizable = document.createElement('div');
-                        resizable.classList.add('resizable');
-                        resizable.appendChild(img);
-                        editor.appendChild(resizable);
-
-                        // Update select menu with new image
-                        const select = document.getElementById('imageSelect');
-                        const option = document.createElement('option');
-                        option.value = editor.children.length - 1;
-                        option.textContent = `Image ${editor.children.length}`;
-                        select.appendChild(option);
-                    };
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        function selectImage() {
-            const select = document.getElementById('imageSelect');
-            const selectedIndex = select.value;
-            if (selectedIndex === "-1") return;
-
-            const selectedImage = document.querySelectorAll('.resizable')[selectedIndex].querySelector('img');
-            document.getElementById('widthInput').value = selectedImage.width;
-            document.getElementById('heightInput').value = selectedImage.height;
-        }
-
-        document.getElementById('widthInput').addEventListener('input', function() {
-            resizeSelectedImage();
-        });
-
-        document.getElementById('heightInput').addEventListener('input', function() {
-            resizeSelectedImage();
-        });
-
-        function resizeSelectedImage() {
-            const select = document.getElementById('imageSelect');
-            const selectedIndex = select.value;
-            if (selectedIndex === "-1") return;
-
-            const selectedImage = document.querySelectorAll('.resizable')[selectedIndex].querySelector('img');
-            const width = document.getElementById('widthInput').value;
-            const height = document.getElementById('heightInput').value;
-
-            selectedImage.style.width = width + 'px';
-            selectedImage.style.height = height + 'px';
-        }
-        
-const contentDiv = document.getElementById("contentDiv");
-const colorButtons = document.querySelectorAll(".colorButton");
-
-colorButtons.forEach(button => {
-    button.addEventListener("click", function() {
-        const selectedText = window.getSelection().toString();
-        if (selectedText !== "") {
-            document.execCommand('styleWithCSS', false, true);
-            document.execCommand('foreColor', false, this.dataset.color);
-        }
-    });
-});
-
-contentDiv.addEventListener("input", function() {
-    const spans = contentDiv.querySelectorAll("span[style]");
-    spans.forEach(span => {
-        if (span.style.color) {
-            span.outerHTML = span.innerHTML;
-        }
-    });
-});
-
-
-  // Function to save the canvas as a PNG file
-  function saveAsPNG() {
-    var link = document.createElement('a');
-    link.download = 'canvas_drawing.png';
-    link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    link.click();
-  }
-  
-function changeTheme() {
-  let theme = document.getElementById('theme').value;
-  if (theme === 'dark') {
-    document.body.style.backgroundColor = '#333';
-     document.getElementById("editor").style.backgroundColor = 'black';
-    document.getElementsByClassName("text").style.color = 'white';
-     document.getElementById("editor").style.color = 'white';
-     
   } else {
-    document.body.style.backgroundColor = '#fff';
-    document.getElementById("editor").style.color = 'black';
-      document.getElementById("editor").style.backgroundColor = 'white';
-      document.body.style.color = 'black';
+    console.warn("Sidebar element not found");
   }
 }
 
-    function formatText(command, value = null) {
-            document.execCommand(command, false, value);
-        document.getElementById("fontchanger").value = "Rubik";
-        }
-
-</script>
 
 
-     
-     <script>
- function changeColor() {
-            var color = prompt("Enter color (e.g., red, #00ff00):");
-            document.execCommand("foreColor", false, color);
-        }
+     function confirmChoice() {
+  const selected = document.querySelector('.chrome-options li.selected');
+  if (!selected) {
+    alert('Please select an option first.');
+    return;
+  }
+
+  const option = selected.textContent.trim();
+
+    if (option === 'Save to Jamesy Creator') {
+      hideOptions();
+    saveDoc();
+  } else if (option === 'Download as a .jcdoc' || option === 'Downloads') {
+      hideOptions();
+    saveToComputer();
+  } else if (option === 'Save as a .pdf') {
+      hideOptions();
+    printContent(true); 
+  } else if (option === 'Print') {
+         printContent(true);
+        } else {
+    alert('Unknown option selected: ' + option);
+  }
+
+  hideOptions();
+}
 
 
-    document.getElementById('saveBtn').addEventListener('click', function() {
-        var imgData = canvas.toDataURL('image/png');
-        var link = document.createElement('a');
-        link.download = 'drawing.png';
-        link.href = imgData;
-        link.click();
-    });
+
+ 
+function changeFont(fontName) {
+  const editor = document.getElementById('editor');
+  const selection = window.getSelection();
+
+  if (!selection.rangeCount) return;
+
+  const range = selection.getRangeAt(0);
+  if (range.collapsed) {
+
+    const span = document.createElement('span');
+    span.style.fontFamily = fontName;
+    span.appendChild(document.createTextNode('\u200B')); 
+    range.insertNode(span);
     
-      const clearBtn = document.getElementById('clearBtn');
-  const discardDiv = document.getElementById('discard');
-  const confirmClearBtn = document.getElementById('confirmClearBtn');
-  const cancelClearBtn = document.getElementById('cancelClearBtn');
+    
+    range.setStartAfter(span);
+    range.setEndAfter(span);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  } else {
+  
+    const span = document.createElement('span');
+    span.style.fontFamily = fontName;
+    span.appendChild(range.extractContents());
+    range.insertNode(span);
 
-  clearBtn.addEventListener('click', function() {
-    discardDiv.style.display = 'block';
+
+    selection.removeAllRanges();
+    const newRange = document.createRange();
+    newRange.selectNodeContents(span);
+    selection.addRange(newRange);
+  }
+
+  
+  document.getElementById('fontChanger').value = '';
+}
+
+
+      
+
+function showOptions() {
+  document.getElementById("chromePrompt").style.display = "block";
+}
+
+function hideOptions() {
+  document.getElementById("chromePrompt").style.display = "none";
+}
+
+function saveToCreator() {
+  console.log("Saved to Jamesy Creator");
+  hideOptions();
+}
+
+function saveToComputer() {
+  console.log("Saved to Computer");
+  hideOptions();
+}
+
+      
+
+      document.querySelectorAll('.chrome-options li').forEach(li => {
+  li.addEventListener('click', () => {
+    // Remove 'selected' from all
+    document.querySelectorAll('.chrome-options li').forEach(el => el.classList.remove('selected'));
+    // Add 'selected' to clicked
+    li.classList.add('selected');
+    
+    // Perform your save action depending on selected option text
+    console.log("Selected save location:", li.textContent);
+    // Example: call saveToLocation(li.textContent);
   });
-
-  cancelClearBtn.addEventListener('click', function() {
-    discardDiv.style.display = 'none';
-  });
-
-  confirmClearBtn.addEventListener('click', function() {
-    // Add code to clear the drawing here
-    // For example: ctx.clearRect(0, 0, canvas.width, canvas.height);
-    discardDiv.style.display = 'none';
-  });
-  
-  
-  
-  
-function insertF() {
-    document.getElementById("insert").style.display = 'none';
-}
-
-function changeBG() {
-  var picker = document.getElementById("bgcolor").value;
-  document.body.style.backgroundColor = picker;
-}
-  
-  
-function changeBG2() {
-  var picker2 = document.getElementById("bgcolor2").value;
-  document.getElementById("contentDiv").style.backgroundColor = picker2;
-}
-  
-  
-function insert() {
-    document.getElementById("insert").style.display = 'block';
-}
-
-  
-function textF() {
-    document.getElementById("textedit").style.display = 'none';
-}
-
-  
-function text() {
-    document.getElementById("textedit").style.display = 'block';
-}
-
-function text2() {
-    document.getElementById("image").style.display = 'block';
-}
-function textF2() {
-    document.getElementById("image").style.display = 'none';
-}
-
-
-function text3() {
-    document.getElementById("textedit3").style.display = 'block';
-}
-function textF3() {
-    document.getElementById("textedit3").style.display = 'none';
-}
-
-function changeTextColor() {
-  var color = document.getElementById("textColorPicker").value;
-  document.execCommand('foreColor', false, color);
-}
-
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js">
-
-document.getElementById("saveBtn").addEventListener('click', function() {
-  var doc = new jsPDF();
-  var content = document.querySelector('.doc').innerText;
-  
-  doc.text(content, 10, 10);
-  doc.save('document.pdf');
 });
 
 
- function saveContentToFile() {
-            var content = document.getElementById('contentToSave').innerHTML;
-            var blob = new Blob([content], { type: 'text/html' });
-            var a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'saved_content.html';
-            a.click();
-        }
-</script>
+      
+      
+    const storageKey = 'jcdocs';
+    const openKey = 'jcdocsOpen';
+    let docs = {};
+    let openDocs = [];
+    let current = null;
 
-
-
-    <script>
-        function savePageAsHTML() {
-            var content = document.documentElement.outerHTML;
- const filename = document.getElementById('filename').value || 'untitled.pdf';
-            var blob = new Blob([content], { type: 'document/pdf' });
-            var url = URL.createObjectURL(blob);
-
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
-var doc = new jsPDF();
-var specialElementHandlers = {
-    '#editor': function (element, renderer) {
-        return true;
+    function loadDocs() {
+      try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch(e) { return {}; }
     }
-};
-$('#submit').click(function () {
-    doc.fromHTML($('#content').html(), 15, 15, {
-        'width': 190,
-            'elementHandlers': specialElementHandlers
-    });
-    doc.save('sample-page.pdf');
-});
+    function saveDocs() { localStorage.setItem(storageKey, JSON.stringify(docs)); }
+
+    function loadOpen() {
+      try { return JSON.parse(sessionStorage.getItem(openKey)) || []; } catch(e) { return []; }
+    }
+    function saveOpen() { sessionStorage.setItem(openKey, JSON.stringify(openDocs)); }
+
+    function buildSidebar() {
+      const list = document.getElementById('docList');
+      list.innerHTML = '';
+      // Overview link
+      const liOv = document.createElement('li');
+      const aOv = document.createElement('a');
+      aOv.textContent = 'My creations';
+      aOv.href = window.location.pathname;
+      if (!current) aOv.classList.add('active');
+      liOv.appendChild(aOv);
+      list.appendChild(liOv);
+
+      openDocs.forEach(name => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = name;
+        a.href = `?doc=${encodeURIComponent(name)}`;
+        if (current === name) a.classList.add('active');
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    function openDoc(name) {
+      if (!openDocs.includes(name)) {
+        openDocs.push(name);
+        saveOpen();
+      }
+      window.location.search = `?doc=${encodeURIComponent(name)}`;
+    }
 
 
-  function printContent() {
-    var content = document.getElementById('contentDiv').innerHTML;
-  //  var win = window.open('', 'PrintWindow');
-    win.document.write("<html><head><title>PDF - Jamesy Creator</title><style>  @import url('https://fonts.googleapis.com/css2?family=Abel&family=Fascinate+Inline&family=Ga+Maamli&family=Happy+Monkey&family=Jaro:opsz@6..72&family=Kumbh+Sans:wght@100..900&family=Lilita+One&family=Lobster&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Silkscreen:wght@400;700&family=Tiny5&family=VT323&display=swap');</style></head><body>" + content + "</body></html>");
-   // win.document.close();
-    
+      function changeFontSizeBy(delta) {
+  const sel = window.getSelection();
+  if (!sel.rangeCount) return;
+  const range = sel.getRangeAt(0);
+
+  function getCurrentFontSize(el) {
+    const size = window.getComputedStyle(el).fontSize;
+    return parseInt(size) || 16;
   }
-  
-  
-function printContent2(print) {
-  
-            document.getElementById('colors').style.backgroundImage = "url('images/loadingbar.gif')"; // New background image
-           setTimeout(() => {
-        document.getElementById('colors').style.backgroundImage = "url('images/colors.png')"; // New background image
-    }, 10000);
+
+  function applyFontSize(span, size) {
+    span.style.fontSize = `${size}px`;
+    span.style.display = "inline";
+  }
+
+  if (!range.collapsed) {
+    // Change size of selected text
+    const selectedText = range.extractContents();
+    const span = document.createElement("span");
+    span.appendChild(selectedText);
+
+    const currentSize = getCurrentFontSize(span);
+    applyFontSize(span, currentSize + delta);
+    range.insertNode(span);
+  } else {
+    // No selection — insert a span to type into
+    const span = document.createElement("span");
+    const dummy = document.createTextNode("\u200B");
+    span.appendChild(dummy);
+
+    // Get current node's font size
+    const node = sel.focusNode?.parentElement;
+    const currentSize = getCurrentFontSize(node || document.body);
+    applyFontSize(span, currentSize + delta);
+
+    range.insertNode(span);
+
+    // Move caret inside the new span
+    const newRange = document.createRange();
+    newRange.setStart(span.firstChild, 1);
+    newRange.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(newRange);
+  }
+}
+
+
+
+       function setFontSize(size) {
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+
+    let fontSize;
+    switch(size) {
+      case 'small': fontSize = '12px'; break;
+      case 'default': fontSize = '16px'; break;
+             case 'medium': fontSize = '24px'; break;
+             case 'large': fontSize = '42px'; break;
+             case 'huge': fontSize = '72px'; break;
+            
+      default: fontSize = '16px';
+    }
+
+    const range = selection.getRangeAt(0);
+
+    if (range.collapsed) {
+      // Insert a span with font size for future typing
+      const span = document.createElement('span');
+      span.style.fontSize = fontSize;
+      span.appendChild(document.createTextNode('\u200B')); // zero-width space
+      range.insertNode(span);
+
+      // Move caret inside the span
+      const newRange = document.createRange();
+      newRange.setStart(span.firstChild, 1);
+      newRange.collapse(true);
+      selection.removeAllRanges();
+      selection.addRange(newRange);
+    } else {
+      // Wrap selected text in a span with font size
+      const selectedText = range.extractContents();
+      const span = document.createElement('span');
+      span.style.fontSize = fontSize;
+      span.appendChild(selectedText);
+      range.insertNode(span);
+
+      // Re-select the new span content
+      selection.removeAllRanges();
+      const newRange = document.createRange();
+      newRange.selectNodeContents(span);
+      selection.addRange(newRange);
+    }
+  }
+      
+      
+      
+
+      
+    function renderOverview() {
+      current = null;
+      docs = loadDocs();
+      openDocs = loadOpen();
+      buildSidebar();
+      document.getElementById('statusName').textContent = 'My creations';
+      document.getElementById('exportBtn').style.display = 'none';
+      document.getElementById('closeBtn').style.display = 'none';
+         document.getElementById('openBtn').style.display = 'none';
+         
+
+      document.getElementById('deleteBtn').style.display = 'none';
+      document.getElementById('contentArea').innerHTML = `
+        <span class="overview_title">&#x2728; My creations</span>
+        <ul id="overviewList"></ul>
+      `;
+      const ul = document.getElementById('overviewList');
+      Object.keys(docs).forEach(name => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = name;
+        a.href = '#';
+        a.onclick = () => openDoc(name);
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+    }
+
+
+   
+    function renderEditor(name) {
+      current = name;
+      docs = loadDocs();
+      openDocs = loadOpen();
+      buildSidebar();
+      document.getElementById('statusName').textContent = name;
+      document.getElementById('closeBtn').style.display = '';
+         document.getElementById('openBtn').style.display = '';
+         
+         document.getElementById('exportBtn').style.display = '';
+      document.getElementById('deleteBtn').style.display = '';
+     document.getElementById('contentArea').innerHTML = `
+  <div id="editor" contenteditable="true" style="height: calc(100% - 40px); overflow-y: auto; padding-bottom: 50px;"></div>
+  <div id="editorToolbar">
+    <button onclick="document.execCommand('bold')" style="font-weight:bold;">B</button>
+    <button onclick="document.execCommand('italic')" style="font-style:italic;font-family:'Roboto Mono';">I</button>
+    <button onclick="document.execCommand('underline')" style="text-decoration:underline;">U</button>
+
+<select id="fontSelector" onchange="changeFont(this.value)">
+  <option value="Lato">Lato</option>
+  <option value="Roboto Mono">Roboto Mono</option>
+  <option value="Raleway">Raleway</option>
+  <option value="Mulish">Mulish</option>
+  <option value="Fira Sans">Fira Sans</option>
+  <option value="IBM Plex Sans">IBM Plex Sans</option>
+  <option value="Montserrat">Montserrat</option>
+  <option value="Open Sans">Open Sans</option>
+  <option value="Sora">Sora</option>
+  <option value="Poppins">Poppins</option>
+  <option value="Lilita One">Lilita One</option>
+  <option value="Pacifico">Pacifico</option>
+</select>
+&nbsp;
+
+<span style="font-size:14px;">Font size:</span>
+
+<button onclick="setFontSize('small')">Small</button>
+  <button onclick="setFontSize('default')">Default</button>
+  <button onclick="setFontSize('medium')">Medium</button>
+    <button onclick="setFontSize('large')">Large</button>
+ <button onclick="setFontSize('huge')">Huge</button>
+
+
+
+   
+  </div>
+`;
+
+      const editor = document.getElementById('editor');
+      editor.innerHTML = docs[name] || '';
+      editor.focus();
+    }
+
+    function newDoc() {
+      const name = prompt('New document name', `doc${Date.now()}`);
+      if (!name) return;
+      docs[name] = '';
+      saveDocs();
+      openDocs = loadOpen();
+      openDocs.push(name);
+      saveOpen();
+      openDoc(name);
+    }
+
+    function saveDoc() {
     
+      if (!current) return;
+      const content = document.getElementById('editor').innerHTML;
+      docs[current] = content;
+      saveDocs();
+      const msg = document.getElementById('statusMsg');
+      msg.textContent = 'Saved ✓';
+      setTimeout(() => { msg.textContent = ''; }, 1500);
+
+        console.log("Document saved");
+        alert("Your document has been saved.");
+        
+    }
+
+    function closeDoc() {
+      openDocs = loadOpen();
+      openDocs = openDocs.filter(n => n !== current);
+      saveOpen();
+      window.location.href = window.location.pathname;
+    }
+
+    function deleteDoc() {
+      if (!current || !confirm(`Delete "${current}"? This cannot be undone.`)) return;
+      delete docs[current];
+      saveDocs();
+      openDocs = loadOpen().filter(n => n !== current);
+      saveOpen();
+      window.location.href = window.location.pathname;
+    }
+
+    // Initialize
+    docs = loadDocs();
+    openDocs = loadOpen();
+    const params = new URLSearchParams(window.location.search);
+    const docName = params.get('doc');
+    if (docName && docs.hasOwnProperty(docName)) {
+      renderEditor(docName);
+    } else {
+      renderOverview();
+    }
+
+function loadContent() {
+  const fileInput = document.getElementById('fileInput');
+  if (!fileInput) return;
+
+  fileInput.click();
+  fileInput.onchange = function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
     
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const content = e.target.result;
+      const name = prompt('Name for imported document', file.name);
+      if (!name) return;
+
+      docs = loadDocs();
+      docs[name] = content;
+      saveDocs();
+
+      openDocs = loadOpen();
+      if (!openDocs.includes(name)) openDocs.push(name);
+      saveOpen();
+
+      openDoc(name);
+    };
+    reader.readAsText(file);
+  };
+}
+
+
+  function saveToComputer() {
+  if (!current) return;
+
+  const content = docs[current] || '';
+  const blob = new Blob([content], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+
+  // Ensure no duplicate .jcdoc extension
+  let filename = current;
+  if (filename.toLowerCase().endsWith('.jcdoc')) {
+    filename = filename.slice(0, -6);
+  }
+  filename += '.jcdoc';
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+
+  const msg = document.getElementById('statusMsg');
+  msg.textContent = 'Saved to computer';
+  setTimeout(() => { msg.textContent = ''; }, 1500);
+}
+
+
+
+
+      function printContent(print) {
     
-    // Get the content from the contentDiv
-    var content = document.getElementById('contentDiv').innerHTML;
-    
-    // Extract styles for contentDiv
-    var contentDiv = document.getElementById('contentDiv');
+    var content = document.getElementById('contentArea').innerHTML;
+
+    var contentDiv = document.getElementById('contentArea');
     var computedStyle = window.getComputedStyle(contentDiv);
     
-    // Build the CSS string to include in the print preview
     var css = `
     
      @import url('https://fonts.googleapis.com/css2?family=Abel&family=Fascinate+Inline&family=Ga+Maamli&family=Happy+Monkey&family=Jaro:opsz@6..72&family=Kumbh+Sans:wght@100..900&family=Lilita+One&family=Lobster&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Silkscreen:wght@400;700&family=Tiny5&family=VT323&display=swap');
@@ -3601,10 +825,10 @@ function printContent2(print) {
         }
     `;
 
-    // Create a new window for printing
+   
     var printWin = window.open('', 'PrintWindow');
     
-    // Write the HTML including styles into the new window
+
     printWin.document.write(`
         <html>
         <head>
@@ -3621,326 +845,23 @@ function printContent2(print) {
         </html>
     `);
 
-    // Close the document and trigger print
+   
     printWin.document.close();
 
-
+setTimeout(() => {
     
     if (print === true) {
          printWin.print();
     }
 
+    }, 100);
+
     
 }
 
-  
-    function openFile() {
-      const fileInput = document.getElementById('fileInput');
-      fileInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const text = e.target.result;
-          document.getElementById('contentDiv').value = text;
-        };
-        reader.readAsText(file);
-      });
-      fileInput.click();
-    }
-    document.getElementById("contentDiv").focus();
-  
-    </script>
-
-<script>
-  // Get the font selector element and content div
-  var fontSelector = document.getElementById('fontSelector');
-  var contentDiv = document.getElementById('contentDiv');
-
-  // Add an event listener to the font selector to apply the selected font
-  fontSelector.addEventListener('change', function() {
-    var selectedFont = fontSelector.value;
-    contentDiv.style.fontFamily = selectedFont;
-  });
- 
-  
-  
-        function alignCenter() {
-            document.execCommand('justifyCenter');
-        }
-
-        function alignRight() {
-            document.execCommand('justifyRight');
-        }
-
-        function alignLeft() {
-            document.execCommand('justifyLeft');
-        }
 
 
-  
-  
-
-</script>
-<script>
-  function openOverlay() {
-    document.getElementById("overlay").style.display = "block";
-  }
-
-  function closeOverlay() {
-    document.getElementById("overlay").style.display = "none";
-  }
-  
-  
-  
-   function documentFull() {
-    document.getElementById("contentDiv").style.width = "100%"
-  }
-
-  function documentNormal() {
-   document.getElementById("contentDiv").style.width = "50%"
-  }
- 
- function bgChangeRed() {
-   document.getElementById("contentDiv").style.background = "Red"
- }
-  function bgChangeOrange() {
-   document.getElementById("contentDiv").style.background = "Orange"
- }
-  function bgChangeYellow() {
-   document.getElementById("contentDiv").style.background = "Yellow"
- }
-  function bgChangeBlue() {
-   document.getElementById("contentDiv").style.background = "Blue"
- }
-  function bgChangeAquamarine() {
-   document.getElementById("contentDiv").style.background = "Aquamarine"
- }
-  function bgChangeLime() {
-   document.getElementById("contentDiv").style.background = "Lime"
- }
-  function bgChangePink() {
-   document.getElementById("contentDiv").style.background = "Pink"
- }
-  function bgChangePurple() {
-   document.getElementById("contentDiv").style.background = "Purple"
- }
-function bgChangeSnow() {
-   document.getElementById("contentDiv").style.background = "Snow"
- }
- function bgChangeGray() {
-   document.getElementById("contentDiv").style.background = "Gray"
- }
- function bgChangeLightGray() {
-   document.getElementById("contentDiv").style.background = "LightGray"
- }
- function bgChangeWhite() {
-   document.getElementById("contentDiv").style.background = "white"
- 
- }
- function bgChangeMediumSeaGreen() {
-   document.getElementById("contentDiv").style.background = "MediumSeaGreen"
- 
- }
- </script>
-
- <script>
- 
-
-  document.addEventListener('DOMContentLoaded', loadContacts);
-
-        function loadContacts() {
-            const contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-            const contactsContainer = document.getElementById('contacts');
-            contactsContainer.innerHTML = '';
-            
-            contacts.forEach(contact => {
-                const contactElement = document.createElement('div');
-                contactElement.classList.add('contact-item');
-                contactElement.onclick = () => fillEmail(contact.email);
-
-                const infoElement = document.createElement('div');
-                infoElement.classList.add('contact-info');
-
-                const nameElement = document.createElement('span');
-                nameElement.classList.add('contact-name');
-                nameElement.textContent = contact.name;
-
-                const emailElement = document.createElement('span');
-                emailElement.classList.add('contact-email');
-                emailElement.textContent = contact.email;
-
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete';
-                deleteButton.classList.add('button', 'delete');
-                deleteButton.onclick = (event) => {
-                    event.stopPropagation(); // Prevent event bubbling
-                    deleteContact(contact.email);
-                };
-                
-                infoElement.appendChild(nameElement);
-                infoElement.appendChild(emailElement);
-                contactElement.appendChild(infoElement);
-                contactElement.appendChild(deleteButton);
-                contactsContainer.appendChild(contactElement);
-            });
-        }
-
-        function addContact() {
-            const nameInput = document.getElementById('contact-name');
-            const emailInput = document.getElementById('contact-email');
-            
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
-            
-            if (name === '' || email === '') {
-                alert('Both name and email are required');
-                return;
-            }
-            
-            const contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-            contacts.push({ name, email });
-            localStorage.setItem('contacts', JSON.stringify(contacts));
-            
-            nameInput.value = '';
-            emailInput.value = '';
-            
-            loadContacts();
-        }
-
-        function deleteContact(email) {
-            let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-            contacts = contacts.filter(contact => contact.email !== email);
-            localStorage.setItem('contacts', JSON.stringify(contacts));
-            
-            loadContacts();
-        }
-
-        function fillEmail(email) {
-            document.getElementById('recipient-email').value = email;
-        }
-
-function shareJCDoc() {
-    let content = document.getElementById('contentDiv').innerHTML;
-    let filename = document.getElementById("filename").value || "document"; // Default filename
-
-    // Create a Blob for the document content
-    let blob = new Blob([`
-        <html>
-            <head><title>Document</title></head>
-            <body>${content}</body>
-        </html>
-    `], { type: 'text/html' });
-
-    // Prepare FormData for the file upload (we'll use Transfer.sh for this example)
-    let formData = new FormData();
-    formData.append('file', blob, `${filename}.jcdoc`);
-
-    // Upload the file to Transfer.sh (or another service if desired)
-    fetch('https://transfer.sh/', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            const fileUrl = data.link;
-            // If navigator.share is supported, try sharing
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Upload this .jcdoc in Jamesy Creator!',
-                    url: fileUrl
-                })
-                .then(() => {
-                    console.log('Share was successful.');
-                })
-                .catch((error) => {
-                    console.error('Error sharing:', error);
-                    openSharePage(fileUrl); // Fallback to open the link in a new tab
-                });
-            } else {
-                // If navigator.share is not supported, open the share link directly
-                openSharePage(fileUrl);
-            }
-        } else {
-            alert('Error: File upload failed. Please try again later.');
-        }
-    })
-    .catch(error => {
-        console.error('Fetch error:', error);
-        alert('Error during the process: ' + error.message);
-    });
-}
-
-// Opens a new tab with the share message
-function openSharePage(fileUrl) {
-    let newTab = window.open('', '_blank');
-    if (newTab) {
-        newTab.document.write(`
-            <html>
-                <head><title>Share This Link</title></head>
-                <body style="font-family: Arial, sans-serif; padding: 20px;">
-                    <h2>Share this link with someone:</h2>
-                    <p><a href="${fileUrl}" target="_blank">${fileUrl}</a></p>
-                    <p style="color: red;"><strong>This link may expire soon.</strong></p>
-                </body>
-            </html>
-        `);
-        newTab.document.close();
-    } else {
-        alert('Popup blocked! Please allow popups and try again.');
-    }
-}
-
-
-
-
-try {
-      var queryString2 = window.location.search;
-      var urlParams2 = new URLSearchParams(queryString2);
-      var templateId = urlParams2.get('template_id');
-      var divToUpdate = document.getElementById('contentDiv'); // Use the correct ID still
-  
-      if (divToUpdate) {
-        if (templateId === '32516749') {
-          documentEditor()
-          divToUpdate.innerHTML = `<div style="line-height:1.8;">
-
-<div style="text-align: center;"><img style="width:100%;" src="https://linuxiac.b-cdn.net/wp-content/uploads/2021/08/web-server-how-does-it-work.png">
-  <span style="font-size: xxx-large;"></span></div><div style="text-align: center;"><span style="font-size: xxx-large;"><font face="Mulish">How do computers work?</font>
-    </span></div><div style="text-align: left;"><div _ngcontent-ng-c3996736030="" class="presented-response-container ng-tns-c3996736030-27">
-      <div _ngcontent-ng-c3996736030="" selection="" class="response-container-content ng-tns-c3996736030-27">
-        <div _ngcontent-ng-c2823402262="" class="response-content ng-tns-c3996736030-27">
-          <message-content _ngcontent-ng-c2823402262="" class="model-response-text ng-star-inserted" _nghost-ng-c3871012092="" id="message-content-id-r_1be4aa79c6752878" style="height: auto;">
-            <div _ngcontent-ng-c3871012092="" class="markdown markdown-main-panel" id="model-response-message-contentr_1be4aa79c6752878" dir="ltr" style="--animation-duration: 600ms; --fade-animation-function: linear;">
-              <p data-sourcepos="1:1-1:366"><font face="Mulish" size="3">A computer is a device that takes information, works with it based on instructions, and then shows or sends the results. It can handle many different tasks, from simple things like adding numbers to more complex things like displaying videos or connecting you to other people online. This ability to manage and change information makes it useful for a lot of different activities.</font></p><p data-sourcepos="1:1-1:366">
-                <span style="font-family: Mulish;">Computers include a variety of parts inside them. The motherboard is the main chip of the device that processes all the incoming messages and requests and then sends the output to another chip or directly to the screen. Some other parts of a computer can include a CPU, touch pad, casing, RAM, speaker, fans, HDD, SSD and a battery. Now that you know some of the parts in a computer, what about when you turn on your computer? It includes a complex set of instructions. Firstly, when you press the power button, it turns on the power supply, the power supply gives all the parts of the computer power to work. Secondly, the CPU (the central processing chip, also known as the brain of the computer) starts to initialize, this basically just means the CPU starts getting ready to boot up your computer. Thirdly, the BIOS starts to make sure everything is working, if everything is not working you will probably get an error screen. Fourthly, the boot loader finds and starts up the operating system (OS) so you can now start using your computer!&nbsp;</span>
-                </p></div></message-content></div></div></div></div>
-                <div style="text-align: left;">
-                  <span style="font-family: Mulish; font-size: medium;">Whether you're playing games for fun, coding a web app, or creating digital art online, computers are important in all kinds of ways.</span></div>
-</div>
-
-`;
-        } else if (templateId === '49433217') {
-          documentEditor()
-          divToUpdate.innerHTML = `<h1 style="font-family:'Mulish';">This document doesn't exist!</h1>`;
-        }
-      }
-    } catch (e) {
-      console.error('Error processing template_id:', e);
-    }
-
-
-
-    const user = localStorage.getItem("username");
-
-if (!user || user.toLowerCase() === "guest") {
-  window.location.href = "https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/login.html";
-}
-    
-
-
- </script>
+      
+  </script>
 </body>
-
-
 </html>

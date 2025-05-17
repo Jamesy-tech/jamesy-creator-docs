@@ -42,25 +42,25 @@
         
     }
 
-      #editorToolbar {
-  position: absolute;
-    bottom: 35px;
-    left: 10px;
-    right: 10px;
-          width:95%;
-    height: 30px;
-    background: white;
-          border:solid whitesmoke 1px;
-    border-radius: 6px;
-          overflow-x:scroll;
-    padding:0px;
-          padding-left:10px;
-          padding-right:10px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    z-index: 10;
-          }
+    #editorToolbar {
+  position: fixed; 
+  bottom: 35px;        
+  left: 10px;
+  right: 10px;
+  width: auto;       
+  height: 30px;
+  background: white;
+  border: solid whitesmoke 1px;
+  border-radius: 6px;
+  overflow-x: scroll;
+  padding: 0 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 10000;    
+}
+
+      
 
       #editorToolbar button {
           

@@ -48,7 +48,7 @@
   left: 10px;
   right: 10px;
   width: auto;       
-  height: 30px;
+  height: 60px;
   background: white;
   border: solid whitesmoke 1px;
   border-radius: 6px;
@@ -66,9 +66,9 @@
           
           background:transparent;
           border:none;
-          padding:6px;
-          padding-left:12px;
-          padding-right:12px;
+          padding:15px;
+          padding-left:20px;
+          padding-right:20px;
           cursor:pointer;
           
           }
@@ -236,6 +236,7 @@
       .confirm {
           padding:5px; 
           width:90px;
+          margin:3px;
          float:right;
     }
 
@@ -254,6 +255,18 @@
               }
           
           }
+
+           .link {
+        color:teal;
+            text-decoration:underline;
+            cursor:pointer;
+            
+            }
+
+        .link:hover {
+       color:blue;
+            }
+
       
 
       #fontSelector, #sizeSelector {
@@ -266,6 +279,12 @@
   background: white;
   cursor: pointer;
           outline:none;
+}
+
+.bottom_message {
+  display:inline-block;
+  margin-top:10px;
+  margin-left:10px;
 }
 
       
@@ -286,11 +305,13 @@
       <h3>Docs</h3>
       <ul id="docList"></ul>
     </div>
-    <div class="content-area" id="contentArea"></div>
+    <div class="content-area" id="contentArea"><div id="editor" contenteditable="true"></div>
+</div>
   </div>
   <div class="status-bar">
-    <span id="statusName">My creations</span>
+    <span id="statusName">Home</span>
     <span id="statusMsg"></span>
+  
   </div>
 
     <input type="file" id="fileInput" style="display: none;">
@@ -307,13 +328,154 @@
 
   </ul>
 
-    <button class="confirm" onclick="confirmChoice()">OK</button>
+  <button class="confirm" onclick="confirmChoice()">OK</button>
+<button class="confirm" onclick="hideOptions()">Cancel</button>
+    
 </div>
+
+
+<div id="addElements" class="chrome-alert-box" style="display:none;">
+  <div class="chrome-header">Elements</div>
+  <ul class="chrome-options">
+    <li>Table</li>
+    <li>Link</li>
+       <li>Checkbox</li>
+      <li>List item</li>
+       <li>Image</li>
+
+  </ul>
+
+   <button class="confirm" onclick="addElement()">Add</button>
+<button class="confirm" onclick="closeAddElements()">Cancel</button>
+   
+</div>
+
 
 
     
     
   <script>
+
+
+
+function insertAtCaret(html, element = document.getElementById("editor")) {
+    element.focus();
+    if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+        const range = window.getSelection().getRangeAt(0);
+        const fragment = document.createRange().createContextualFragment(html);
+        range.deleteContents(); 
+        range.insertNode(fragment); 
+    }
+}
+
+
+
+
+ function insertImage() {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+
+                const widthInput = prompt("Image size | Type 'fill' for 100% width");
+                if (widthInput !== null) {
+                    const editableDiv = document.getElementById('editor');
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+
+                    const trimmedWidth = widthInput.trim();
+                    const lowerCaseWidth = trimmedWidth.toLowerCase();
+
+                    if (lowerCaseWidth === "fill") {
+                        img.style.width = "100%";
+                    } else if (lowerCaseWidth.endsWith("px") || lowerCaseWidth.endsWith("%")) {
+                        img.style.width = lowerCaseWidth;
+                    } else {
+                        const parsedWidth = parseInt(trimmedWidth);
+                        if (!isNaN(parsedWidth) && parsedWidth >= 1) {
+                            img.style.width = parsedWidth + "px";
+                        } else {
+                            alert("Invalid width");
+                            return;
+                        }
+                    }
+
+                    editableDiv.appendChild(img);
+                }
+            };
+            reader.readAsDataURL(file);
+        } else if (file) {
+            alert("Invalid file type. Please select an image file.");
+        }
+    });
+    fileInput.click();
+}
+
+function insertLink() {
+      // Ask for the link text and URL
+      let linkText = prompt("Enter the text for the link:");
+      let linkURL = prompt("Enter the URL for the link:", "https://");
+
+      if (linkText && linkURL) {
+        // Insert the link into the contenteditable div
+        let editor = document.getElementById("editor");
+        editor.focus();
+
+        // Create the link HTML
+        let link = `&nbsp;<span class="link" contenteditable="true" onclick="openTab('${linkURL}');" target="_blank" contenteditable="false">${linkText}</span> &nbsp;`;
+
+        // Insert the link at the current cursor position
+        document.execCommand("insertHTML", false, link);
+      }
+    }
+    
+       function insertCheckbox() {
+           // document.getElementById("mySelect").value = "option0";
+            const checkboxHTML = '<span class="checkbox"><input type="checkbox" value=""></span>';
+            const div = document.getElementById("editor");
+            insertAtCaret(checkboxHTML, div);
+           
+        }
+
+  function insertTable() {
+  const size = prompt("What size do you want your table to be? (e.g 4 x 3, 6 x 9)", "4 x 3");
+  if (!size) return;
+
+  const [rows, cols] = size.toLowerCase().split("x").map(x => parseInt(x.trim()));
+  if (isNaN(rows) || isNaN(cols)) {
+    alert("Invalid format. Use 'rows x columns' (e.g., 3 x 4)");
+    return;
+  }
+
+  let tableHTML = '<table border="1" style="border-collapse: collapse; width: 100%;">';
+  for (let i = 0; i < rows; i++) {
+    tableHTML += "<tr>";
+    for (let j = 0; j < cols; j++) {
+      tableHTML += `<td contenteditable="true" style="border: solid black 1px; background: transparent; padding: 20px;">Cell ${i * cols + j + 1}</td>`;
+    }
+    tableHTML += "</tr>";
+  }
+  tableHTML += "</table>";
+
+  insertAtCaret(tableHTML);
+}
+
+
+
+
+
+function closeAddElements() {
+   document.getElementById("addElements").style.display = "none";
+}
+
 
       function toggleMenu() {
   const sidebar = document.querySelector(".sidebar");
@@ -358,6 +520,38 @@
 }
 
 
+
+function addElement() {
+  const selected = document.querySelector('#addElements .chrome-options li.selected');
+  if (!selected) {
+    alert('Please select an option first.');
+    return;
+  }
+
+  const option = selected.textContent.trim();
+
+  if (option === 'Table') {
+    insertTable();
+    closeAddElements(); 
+  } else if (option === 'Link') {
+    insertLink();
+    closeAddElements();
+  } else if (option === 'Checkbox') {
+insertCheckbox();
+closeAddElements();
+
+  } else if (option === 'Image') { 
+    insertImage();
+    closeAddElements();
+  } else {
+    alert('Unknown option selected: ' + option);
+  }
+}
+
+
+
+
+ 
 
  
 function changeFont(fontName) {
@@ -418,7 +612,13 @@ function saveToComputer() {
   hideOptions();
 }
 
-      
+function addElements() {
+   document.getElementById("addElements").style.display = "block";
+}
+    
+
+    
+
 
       document.querySelectorAll('.chrome-options li').forEach(li => {
   li.addEventListener('click', () => {
@@ -458,7 +658,7 @@ function saveToComputer() {
       // Overview link
       const liOv = document.createElement('li');
       const aOv = document.createElement('a');
-      aOv.textContent = 'My creations';
+      aOv.textContent = 'Home';
       aOv.href = window.location.pathname;
       if (!current) aOv.classList.add('active');
       liOv.appendChild(aOv);
@@ -597,6 +797,7 @@ function saveToComputer() {
       document.getElementById('contentArea').innerHTML = `
         <span class="overview_title">&#x2728; My creations</span>
         <ul id="overviewList"></ul>
+       <span class="bottom_message">Create a new document by clicking the 'New' button at the top left of the page.</span>
       `;
       const ul = document.getElementById('overviewList');
       Object.keys(docs).forEach(name => {
@@ -624,8 +825,14 @@ function saveToComputer() {
          document.getElementById('exportBtn').style.display = '';
       document.getElementById('deleteBtn').style.display = '';
      document.getElementById('contentArea').innerHTML = `
+
+  
+
   <div id="editor" contenteditable="true" style="height: calc(100% - 40px); overflow-y: auto; padding-bottom: 50px;"></div>
   <div id="editorToolbar">
+
+    <button onclick="addElements()">Elements</button>
+
     <button onclick="document.execCommand('bold')" style="font-weight:bold;">B</button>
     <button onclick="document.execCommand('italic')" style="font-style:italic;font-family:'Roboto Mono';">I</button>
     <button onclick="document.execCommand('underline')" style="text-decoration:underline;">U</button>
@@ -655,6 +862,8 @@ function saveToComputer() {
  <button onclick="setFontSize('huge')">Huge</button>
 
 
+
+  
 
    
   </div>

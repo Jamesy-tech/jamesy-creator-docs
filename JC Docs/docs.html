@@ -273,10 +273,15 @@
       @media (max-width:800px) {
        .sidebar { display:none; }
           #menuBtn { 
-            
-    /*  display:block; */
-            
+       display:block;
               }
+          #quit {
+              display:none;
+              }
+          #nav_quit {
+              display:block;
+              }
+
           }
 
       @media (min-width:800px) {
@@ -338,7 +343,7 @@
 <body>
   <div class="menu-bar">
       
-<button onclick="newDoc()">
+<button onclick="quit()" id="quit">
     
 <span class="material-symbols-outlined">apps</span>
 
@@ -817,28 +822,39 @@ function addElements() {
     }
     function saveOpen() { sessionStorage.setItem(openKey, JSON.stringify(openDocs)); }
 
-    function buildSidebar() {
-      const list = document.getElementById('docList');
-      list.innerHTML = '';
-      const liOv = document.createElement('li');
-      const aOv = document.createElement('a');
-      aOv.textContent = 'Home';
-      aOv.href = window.location.pathname;
-      if (!current) aOv.classList.add('active');
-      liOv.appendChild(aOv);
-      list.appendChild(liOv);
+  function buildSidebar() {
+  const list = document.getElementById('docList');
+  list.innerHTML = '';
 
-      openDocs.forEach(name => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.textContent = name;
-        a.href = `?doc=${encodeURIComponent(name)}`;
-        if (current === name) a.classList.add('active');
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-    }
+  
+  const liOv = document.createElement('li');
+  const aOv = document.createElement('a');
+  aOv.textContent = 'Home';
+  aOv.href = window.location.pathname;
+  if (!current) aOv.classList.add('active');
+  liOv.appendChild(aOv);
+  list.appendChild(liOv);
 
+  
+  openDocs.forEach(name => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.textContent = name;
+    a.href = `?doc=${encodeURIComponent(name)}`;
+    if (current === name) a.classList.add('active');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+
+  const liExit = document.createElement('li');
+  const aExit = document.createElement('a');
+  aExit.textContent = 'Exit';
+  aExit.href = 'https://jamesy-tech.github.io/jamesy-creator/';
+  liExit.appendChild(aExit);
+  list.appendChild(liExit);
+}
+
+      
     function openDoc(name) {
       if (!openDocs.includes(name)) {
         openDocs.push(name);
@@ -857,6 +873,8 @@ function addElements() {
       document.getElementById('exportBtn').style.display = 'none';
       document.getElementById('closeBtn').style.display = 'none';
          document.getElementById('openBtn').style.display = 'none';
+
+        document.getElementById('quit').style.display = '';
          
 
       document.getElementById('deleteBtn').style.display = 'none';
@@ -879,6 +897,9 @@ function addElements() {
     }
 
 
+      
+
+
    
     function renderEditor(name) {
       current = name;
@@ -891,6 +912,9 @@ function addElements() {
          
          document.getElementById('exportBtn').style.display = '';
       document.getElementById('deleteBtn').style.display = '';
+
+        document.getElementById('quit').style.display = 'none';
+        
      document.getElementById('contentArea').innerHTML = `
 
   
@@ -920,7 +944,8 @@ function addElements() {
 </select>
 &nbsp;
 
-<span style="font-size:14px;">Font size:</span> 
+ <span style="font-size:14px; display:flex;">Font</span>
+<span style="font-size:14px; display:flex;">size:</span>
 
 
 <button onclick="changeFontSize('16px')">16px</button>
@@ -939,7 +964,8 @@ function addElements() {
 
 &nbsp;
 
-<span style="font-size:14px;">Element align:</span> 
+ <span style="font-size:14px; display:flex;">Element</span>
+<span style="font-size:14px; display:flex;">align:</span>
  
     <button class="b12" onclick="document.execCommand('justifyLeft');"><</button>
     
@@ -949,8 +975,13 @@ function addElements() {
 
 &nbsp;
 
-<span style="font-size:14px;">Line height:</span> 
-   
+
+
+ <span style="font-size:14px; display:flex;">Line</span>
+<span style="font-size:14px; display:flex;">height:</span>
+
+
+
     <button onclick="changeLineHeight('0.5')">0.5</button>
   <button onclick="changeLineHeight('1')">1</button>
   <button onclick="changeLineHeight('1.5')">1.5</button>

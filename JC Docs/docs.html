@@ -275,10 +275,10 @@
           #menuBtn { 
        display:block;
               }
-          #quit {
+          # {
               display:none;
               }
-          #nav_quit {
+          #nav_ {
               display:block;
               }
 
@@ -431,6 +431,14 @@ function insertAtCaret(html, element = document.getElementById("editor")) {
     }
 }
 
+      function quit() {
+    window.close()
+    setTimeout(() => {
+       window.location.href = "https://jamesy-tech.github.io/jamesy-creator/";
+    }, 100);
+  }
+
+    
 
       function changeLineHeight(lineHeight) {
   const selection = window.getSelection();

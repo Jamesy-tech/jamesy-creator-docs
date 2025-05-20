@@ -1100,7 +1100,6 @@ function loadContent() {
   const blob = new Blob([content], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
 
-  // Ensure no duplicate .jcdoc extension
   let filename = current;
   if (filename.toLowerCase().endsWith('.jcdoc')) {
     filename = filename.slice(0, -6);
@@ -1125,10 +1124,12 @@ function loadContent() {
 
 
       function printContent(print) {
-    
-    var content = document.getElementById('editor').innerHTML;
 
-    var contentDiv = document.getElementById('editor');
+          document.getElementById("editorToolbar").style.display = "none";
+    
+    var content = document.getElementById('contentArea').innerHTML;
+
+    var contentDiv = document.getElementById('contentArea');
     var computedStyle = window.getComputedStyle(contentDiv);
     
     var css = `
@@ -1219,6 +1220,8 @@ setTimeout(() => {
     }
 
     }, 100);
+
+          document.getElementById("editorToolbar").style.display = "";
 
     
 }

@@ -275,10 +275,10 @@
           #menuBtn { 
        display:block;
               }
-          # {
+          #quit {
               display:none;
               }
-          #nav_ {
+          #nav_quit {
               display:block;
               }
 
@@ -420,6 +420,14 @@
   <script>
 
 
+  function quit() {
+    window.close()
+    setTimeout(() => {
+       window.location.href = "https://jamesy-tech.github.io/jamesy-creator/";
+    }, 100);
+  }
+    
+
 
 function insertAtCaret(html, element = document.getElementById("editor")) {
     element.focus();
@@ -431,14 +439,6 @@ function insertAtCaret(html, element = document.getElementById("editor")) {
     }
 }
 
-      function quit() {
-    window.close()
-    setTimeout(() => {
-       window.location.href = "https://jamesy-tech.github.io/jamesy-creator/";
-    }, 100);
-  }
-
-    
 
       function changeLineHeight(lineHeight) {
   const selection = window.getSelection();
@@ -1126,9 +1126,9 @@ function loadContent() {
 
       function printContent(print) {
     
-    var content = document.getElementById('contentArea').innerHTML;
+    var content = document.getElementById('editor').innerHTML;
 
-    var contentDiv = document.getElementById('contentArea');
+    var contentDiv = document.getElementById('editor');
     var computedStyle = window.getComputedStyle(contentDiv);
     
     var css = `

@@ -491,6 +491,13 @@ code
     
   <script>
 
+
+ function changeColor() {
+            var color = prompt("Enter colour (e.g., red, #00ff00):");
+            document.execCommand("foreColor", false, color);
+        }
+
+
       (function(){
   const codeBtn      = document.getElementById('codeBtn');
   const sidebar      = document.getElementById('codeSidebar');
@@ -1043,6 +1050,8 @@ function addElements() {
 
     <button onclick="addElements()">Elements</button>
 
+   <button onclick="changeColor()">Colour</button>
+
     <button onclick="document.execCommand('bold')" style="font-weight:bold;">B</button>
     <button onclick="document.execCommand('italic')" style="font-style:italic;font-family:'Roboto Mono';">I</button>
     <button onclick="document.execCommand('underline')" style="text-decoration:underline;">U</button>
@@ -1103,6 +1112,10 @@ function addElements() {
   <button onclick="changeLineHeight('1')">1</button>
   <button onclick="changeLineHeight('1.5')">1.5</button>
   <button onclick="changeLineHeight('2')">2</button>
+
+ <button onclick="changeLineHeight('2.5')">2.5</button>
+
+ <button onclick="changeLineHeight('3')">3</button>
 
    
   </div>

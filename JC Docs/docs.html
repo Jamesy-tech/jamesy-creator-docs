@@ -443,7 +443,7 @@
            <span class="material-symbols-outlined">menu</span>
        </button>
     <button onclick="newDoc()"><span class="material-symbols-outlined">add</span></button>
-      <button onclick="saveDoc()" id="saveBtn">Save</button>
+      <button onclick="saveDoc()" id="saveBtn"><span class="material-symbols-outlined">save</span></button>
     <button onclick="showOptions()" id="exportBtn">
         Export
     </button>
@@ -530,6 +530,16 @@ code
     
   <script>
 
+
+      const contentArea = document.getElementById("contentArea");
+
+if (contentArea) {
+  contentArea.addEventListener("input", function () {
+    saveDoc();
+  });
+}
+
+      
       (function(){
   const codeBtn      = document.getElementById('codeBtn');
   const sidebar      = document.getElementById('codeSidebar');
@@ -1276,20 +1286,33 @@ document.getElementById('saveBtn').style.display = '';
       openDoc(name);
     }
 
-    function saveDoc() {
-    
-      if (!current) return;
-      const content = document.getElementById('editor').innerHTML;
-      docs[current] = content;
-      saveDocs();
-      const msg = document.getElementById('statusMsg');
-      msg.textContent = 'Saved ✓';
-      setTimeout(() => { msg.textContent = ''; }, 1500);
+let saveTimeout;
 
-        console.log("Document saved");
-        alert("Your document has been saved.");
-        
-    }
+function saveDoc() {
+  const msg = document.getElementById('statusMsg');
+  const editor = document.getElementById('editor');
+  if (!current || !msg || !editor) return;
+
+  clearTimeout(saveTimeout);
+
+  msg.textContent = 'Saving...';
+  console.log('Saving...');
+
+  saveTimeout = setTimeout(() => {
+    const content = editor.innerHTML;
+    docs[current] = content;
+    saveDocs();
+
+    msg.textContent = 'Saved ✓';
+    console.log('Saved ✓');
+
+    setTimeout(() => {
+      msg.textContent = '';
+    }, 1500);
+  }, 1500); 
+}
+
+
 
     function closeDoc() {
       openDocs = loadOpen();

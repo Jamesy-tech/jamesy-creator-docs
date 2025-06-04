@@ -516,7 +516,7 @@ code
 </div>
 
 
-<!-- CODE‑VIEW SIDEBAR -->
+<!-- CODE‑VIEW SIDEBAR -->2
 <div id="codeSidebar">
   <div id="codeHeader">
     <span>HTML Editor</span>
@@ -595,6 +595,26 @@ code
     selection.addRange(newRange);
   }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const droppedContent = sessionStorage.getItem('jcdoc_content');
+  if (!droppedContent) return;
+
+  sessionStorage.removeItem('jcdoc_content');
+
+  const name = prompt('Name for dropped document', 'Dropped File');
+  if (!name) return;
+
+  docs = loadDocs();
+  docs[name] = droppedContent;
+  saveDocs();
+
+  openDocs = loadOpen();
+  if (!openDocs.includes(name)) openDocs.push(name);
+  saveOpen();
+
+  openDoc(name);
+});
 
 
       

@@ -597,12 +597,13 @@ code
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+    
   const droppedContent = sessionStorage.getItem('jcdoc_content');
   if (!droppedContent) return;
 
   sessionStorage.removeItem('jcdoc_content');
 
-  const name = prompt('Name for dropped document', 'Dropped File');
+  const name = prompt('Name this file', '');
   if (!name) return;
 
   docs = loadDocs();
@@ -617,6 +618,43 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+      function loadContent() {
+  const fileInput = document.getElementById('fileInput');
+  if (!fileInput) return;
+
+  fileInput.accept = '.jcdoc';
+  fileInput.click();
+
+  fileInput.onchange = function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (!file.name.toLowerCase().endsWith('.jcdoc')) {
+      alert('Only .jcdoc files are supported.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const content = e.target.result;
+      const name = prompt('Name this file', file.name);
+      if (!name) return;
+
+      docs = loadDocs();
+      docs[name] = content;
+      saveDocs();
+
+      openDocs = loadOpen();
+      if (!openDocs.includes(name)) openDocs.push(name);
+      saveOpen();
+
+      openDoc(name);
+    };
+    reader.readAsText(file);
+  };
+}
+      
       
 
   function quit() {
@@ -1329,41 +1367,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
       
-function loadContent() {
-  const fileInput = document.getElementById('fileInput');
-  if (!fileInput) return;
 
-  fileInput.accept = '.jcdoc';
-  fileInput.click();
-
-  fileInput.onchange = function(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    if (!file.name.toLowerCase().endsWith('.jcdoc')) {
-      alert('Only .jcdoc files are supported.');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const content = e.target.result;
-      const name = prompt('Name for imported document', file.name);
-      if (!name) return;
-
-      docs = loadDocs();
-      docs[name] = content;
-      saveDocs();
-
-      openDocs = loadOpen();
-      if (!openDocs.includes(name)) openDocs.push(name);
-      saveOpen();
-
-      openDoc(name);
-    };
-    reader.readAsText(file);
-  };
-}
 
 
 

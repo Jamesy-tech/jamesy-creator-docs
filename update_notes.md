@@ -1,4 +1,4 @@
-# 8/6/25 Jamesy Creator Docs Update Notes
+# 8/6/25 Jamesy Creator Docs Update Notes ✨
 
 I've done a few things to level up your experience on Jamesy Creator.
 

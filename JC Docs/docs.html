@@ -495,7 +495,7 @@
            <span class="material-symbols-outlined">menu</span>
        </button>
     <button onclick="newDoc()"><span class="material-symbols-outlined" title="New">add</span></button>
-      <button onclick="saveDoc()" id="saveBtn" alt="Save"><span class="material-symbols-outlined">save</span></button>
+      <button onclick="saveDoc('notify')" id="saveBtn" alt="Save"><span class="material-symbols-outlined">save</span></button>
         <button onclick="showOptions()" title="More" id="moreBtn"><span class="material-symbols-outlined">more_horiz</span></button>
     
       <button onclick="loadContent()" id="openBtn">
@@ -1396,7 +1396,8 @@ document.getElementById('closeBtn').style.display = '';
 
 let saveTimeout;
 
-function saveDoc() {
+function saveDoc(method) {
+
   const msg = document.getElementById('statusMsg');
   const editor = document.getElementById('editor');
   if (!current || !msg || !editor) return;
@@ -1418,6 +1419,11 @@ function saveDoc() {
       msg.textContent = '';
     }, 1500);
   }, 1500); 
+
+  if (method === "notify") {
+    alert("Saved!")
+  }
+  
 }
 
 

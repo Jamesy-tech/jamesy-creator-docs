@@ -486,6 +486,8 @@
 }
 
 
+
+
 </style>
 
     
@@ -502,6 +504,11 @@
        <button onclick="toggleMenu()" id="menuBtn">
            <span class="material-symbols-outlined">menu</span>
        </button>
+
+        <button onclick="reOpen()" id="window">
+           <span class="material-symbols-outlined">open_in_new</span>
+       </button>
+
     <button onclick="newDoc()"><span class="material-symbols-outlined" title="New">add</span></button>
       <button onclick="saveDoc('notify')" id="saveBtn" alt="Save"><span class="material-symbols-outlined">save</span></button>
         <button onclick="showOptions()" title="More" id="moreBtn"><span class="material-symbols-outlined">more_horiz</span></button>
@@ -602,8 +609,18 @@ description
     
 <div style="position:fixed;top:100px;right:10px;cursor:pointer;z-index:9999;background:white;border:2px solid whitesmoke;border-radius:50%;padding:8px;" onclick="if(!window.jnotes){window.jnotes=document.createElement('div');with(window.jnotes.style){position='fixed';top='50px';left='50px';width='300px';height='400px';border='1px solid #ccc';background='white';zIndex=9999;resize='both';overflow='hidden';borderRadius='8px';boxShadow='0 4px 12px rgba(0,0,0,0.1)';}window.jnotes.innerHTML='<div id=\'jnotes-header\' style=\'background:#eee;padding:5px;cursor:move;font-family:sans-serif;font-size:14px;\'>🗒️ Notes <span style=\'float:right;cursor:pointer;\' onclick=\'this.parentNode.parentNode.remove();window.jnotes=null\'>❌</span></div><iframe src=\'https://jamesy-tech.github.io/jamesy-creator-notes?type=window\' style=\'width:100%;height:calc(100% - 30px);border:none;\'></iframe>';document.body.appendChild(window.jnotes);drag(window.jnotes, window.jnotes.querySelector('#jnotes-header'));}"><img src='images/notes.png' style='width:32px;height:32px;display:block;'/></div><script>function drag(el, handle){let x=0,y=0,xs=0,ys=0;handle.onmousedown=e=>{e.preventDefault();xs=e.clientX;ys=e.clientY;document.onmouseup=()=>document.onmousemove=null;document.onmousemove=e=>{x=xs-e.clientX;y=ys-e.clientY;xs=e.clientX;ys=e.clientY;el.style.top=(el.offsetTop-y)+'px';el.style.left=(el.offsetLeft-x)+'px';};};}</script>
 
-
-    
+<style>
+  #window {
+  display:none;
+}
+</style>
+    <script>
+ if (new URLSearchParams(window.location.search).get("event") === "window") document.getElementById("window").style.display = "block";
+ function reOpen()  {
+  window.top.location.href = "https://jamesy-tech.github.io/jamesy-creator-docs"
+ }
+ </script>
+ 
   <script>
 
 function updateLog() {
@@ -772,7 +789,6 @@ window.addEventListener('DOMContentLoaded', () => {
     reader.readAsText(file);
   };
 }
-      
       
 
   function quit() {

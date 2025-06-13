@@ -1232,11 +1232,13 @@ function addElements() {
   });
 
   const liExit = document.createElement('li');
-  const aExit = document.createElement('a');
-  aExit.textContent = 'Exit';
-  aExit.href = 'https://jamesy-tech.github.io/jamesy-creator/';
-  liExit.appendChild(aExit);
-  list.appendChild(liExit);
+const aExit = document.createElement('a');
+aExit.textContent = 'Exit';
+aExit.href = 'https://jamesy-tech.github.io/jamesy-creator/';
+aExit.target = '_top';
+liExit.appendChild(aExit);
+list.appendChild(liExit);
+
 }
 
       

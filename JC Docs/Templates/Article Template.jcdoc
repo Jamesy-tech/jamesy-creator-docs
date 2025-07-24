@@ -40,8 +40,7 @@ color:gray;
 }
 
 </style>
-<div class="banner"></div>
-<div class="box">
+<div class="banner"><br></div><div class="box">
 <span class="title">Untitled Article</span>
 <span class="details">By Your Name</span>
 <span class="subtitle">Subtitle</span>

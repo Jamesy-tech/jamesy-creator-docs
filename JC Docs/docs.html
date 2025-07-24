@@ -458,6 +458,20 @@
   margin:0px;
 }
 
+.templates {
+  color:blue;
+  text-decoration:none;
+  padding:5px;
+  padding-left:10px;
+  padding-bottom:10px;
+  margin-bottom:2px;
+  display:block;
+  font-size:18px;
+}
+
+.templates:hover {
+  text-decoration: underline;
+}
 
 #editing_mode {
   background:#c2e7ff;
@@ -599,7 +613,7 @@ description
 </div>
 
 
-<!-- CODE‑VIEW SIDEBAR -->2
+<!-- CODE‑VIEW SIDEBAR -->
 <div id="codeSidebar">
   <div id="codeHeader">
     <span>HTML Editor</span>
@@ -1270,6 +1284,7 @@ document.getElementById('closeBtn').style.display = 'none';
       document.getElementById('contentArea').innerHTML = `
 
         <span class="overview_title">&#x2728; My creations</span>
+       <a href="https://drive.google.com/drive/u/0/folders/1II1QpLcCsn9VtkzbgGsdFHKF4tv5Fkxa" class="templates">Template Library</a>
         <ul id="overviewList"></ul>
        <span class="bottom_message">Create a new document by clicking the 'New' button at the top left of the page.</span><br>
       <span class="bottom_message">Can't find your old documents? <a class="bottom_message" href="classic_docs.html">Try checking Classic Docs</a>

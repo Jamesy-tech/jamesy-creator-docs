@@ -1,0 +1,10 @@
+How to use Jamesy Creator templates?
+
+1. Find a template in our library - any template will work
+2. Download the template
+3. Head back to Jamesy Creator
+4. Click on the Open File tool in the Apps menu OR press '...' while in Docs and select "Open .jcdoc"
+5. Find the .jcdoc template file you downloaded
+6. Press the 'Open' (might be different on some other platforms) button when you've selected the file
+
+You're done!

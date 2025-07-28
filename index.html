@@ -182,6 +182,7 @@
         max-height: 300px;
         object-fit: cover;
       }
+        
       textarea {
         border: none !important;
         box-shadow: none !important;
@@ -192,6 +193,7 @@
         -ms-overflow-style: none !important;
         overflow: -moz-scrollbars-none !important;
       }
+        
       textarea::-webkit-scrollbar {
         display: none !important;
       }
@@ -301,7 +303,8 @@
   </div>
 
   <script>
-
+      
+      
     const select = document.getElementById('docSelect');
     const doc = document.getElementById('document');
     const titleField = doc.querySelector('.title');
@@ -388,7 +391,7 @@
         bannerImg.src = d.banner;
       } else {
         banner.style.backgroundImage = `url("https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png")`;
-        bannerImg.src = '';
+        bannerImg.src = 'https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png';
       }
       doc.style.display = 'flex';
     }
@@ -437,9 +440,76 @@
       reader.readAsDataURL(file);
     });
 
-    function printDocument() {
-      window.print();
-    }
+
+function printDocument() {
+  const title = titleField.value;
+  const details = detailsField.value;
+  const content = contentField.value.replace(/\n/g, "<br>");
+  const bannerURL = bannerImg.src;
+
+  const printWin = window.open('', '_blank');
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+      <title>${title}</title>
+      <style>
+        body {
+          font-family: "Mulish", sans-serif;
+          margin: 20px;
+        }
+        .banner {
+          width: 100%;
+          max-height: 300px;
+          overflow: hidden;
+          border-radius: 15px;
+          margin-bottom: 20px;
+        }
+        .banner img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          border-radius: 15px;
+        }
+        .title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+        .details {
+          font-size: 16px;
+          color: gray;
+          margin-bottom: 20px;
+        }
+        .content {
+          font-size: 18px;
+          white-space: pre-wrap;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="banner">${bannerURL ? `<img src="${bannerURL}">` : ''}</div>
+      <div class="title">${title}</div>
+      <div class="details">${details}</div>
+      <div class="content">${content}</div>
+    </body>
+    </html>
+  `;
+
+  printWin.document.write(html);
+  printWin.document.close();
+
+  printWin.onload = () => {
+    printWin.focus();
+    printWin.print();
+    printWin.close();
+  };
+}
+
+
 
     loadFromLocalStorage();
   </script>

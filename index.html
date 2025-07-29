@@ -74,7 +74,7 @@
       margin-left:5px;
       margin-right:5px;
       min-height: 180px;
-      max-height: 300px;
+      max-height: 260px;
       border-radius: 15px;
       background-size: cover;
       background-position: center;
@@ -85,7 +85,7 @@
       overflow: hidden;
     }
     .banner img {
-      display: none;
+      display: block;
       width: 100%;
       height: auto;
       border-radius: 15px;
@@ -167,8 +167,8 @@
         overflow: hidden;
         background: none !important;
         transform: none !important;
-        min-height: 180px;
-        max-height: 300px;
+        min-height:0px;
+        max-height:240px;
         margin-bottom: 5px;
         position: relative;
         width: 100%;
@@ -179,7 +179,7 @@
         height: auto;
         border-radius: 15px;
         margin: 0;
-        max-height: 300px;
+        max-height: 240px;
         object-fit: cover;
       }
         
@@ -314,6 +314,7 @@
     const bannerImg = banner.querySelector('img');
     const bannerInput = document.getElementById('bannerInput');
     const STORAGE_KEY = 'jamesy_documents_v2';
+    const username = localStorage.getItem("username") || "Guest"
     let documents = {};
 
     function saveToLocalStorage() {
@@ -328,7 +329,7 @@
         const id = Date.now().toString();
         documents[id] = {
           title: 'Untitled Document',
-          details: 'By Your Name',
+          details: `By ${username}`,
           content: 'Paragraph text...',
           banner: ''
         };
@@ -359,7 +360,7 @@
       const id = Date.now().toString();
       documents[id] = {
         title: 'Untitled Document',
-        details: 'By Your Name',
+        details: `By ${username}`,
         content: 'Paragraph text...',
         banner: ''
       };
@@ -380,21 +381,33 @@
       }
     }
 
-    function loadDocument(id) {
-      const d = documents[id];
-      if (!d) return;
-      titleField.value = d.title;
-      detailsField.value = d.details;
-      contentField.value = d.content;
-      if (d.banner) {
-        banner.style.backgroundImage = `url(${d.banner})`;
-        bannerImg.src = d.banner;
-      } else {
-        banner.style.backgroundImage = `url("https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png")`;
-        bannerImg.src = 'https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png';
-      }
-      doc.style.display = 'flex';
-    }
+  function loadDocument(id) {
+  const d = documents[id];
+  if (!d) return;
+
+  titleField.value = d.title;
+  detailsField.value = d.details;
+  contentField.value = d.content;
+
+  const defaultURL = "https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png";
+
+  if (d.banner) {
+    banner.style.backgroundImage = `url(${d.banner})`;
+    bannerImg.src = d.banner;
+  } else {
+    banner.style.backgroundImage = `url("${defaultURL}")`;
+    bannerImg.src = defaultURL;
+  }
+
+  if ((d.banner || '') === '' || d.banner === defaultURL) {
+    banner.style.transform = "scaleX(-1)";
+  } else {
+    banner.style.transform = "none";
+  }
+
+  doc.style.display = 'flex';
+}
+
 
     function updateCurrentDocument() {
       const id = select.value;
@@ -446,7 +459,7 @@ function printDocument() {
   const details = detailsField.value;
   const content = contentField.value.replace(/\n/g, "<br>");
   const bannerURL = bannerImg.src;
-
+  
   const printWin = window.open('', '_blank');
   const html = `
     <!DOCTYPE html>
@@ -468,8 +481,8 @@ function printDocument() {
         overflow: hidden;
         background: none !important;
         transform: none !important;
-        min-height: 180px;
-        max-height: 300px;
+        min-height:0px;
+        max-height:240px;
         margin-bottom: 20px;
         position: relative;
         width: 100%;
@@ -480,7 +493,7 @@ function printDocument() {
         height: auto;
         border-radius: 15px;
         margin: 0;
-        max-height: 300px;
+        max-height: 240px;
         object-fit: cover;
         }
         .title {
@@ -499,7 +512,9 @@ function printDocument() {
       </style>
     </head>
     <body>
-      <div class="banner">${bannerURL ? `<img src="${bannerURL}">` : ''}</div>
+      <div class="banner">
+  ${bannerURL ? `<img src="${bannerURL}" style="${bannerURL.includes('nav_banner.png') ? 'transform: scaleX(-1);' : ''}">` : ''}
+</div>
       <div class="title">${title}</div>
       <div class="details">${details}</div>
       <div class="content">${content}</div>

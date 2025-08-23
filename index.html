@@ -2,522 +2,743 @@
 <html>
 <head>
     <link rel="icon" href="docs.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <title>Docs</title>
-  <style>
-    * {
-      font-family: "Mulish";
-      box-sizing: border-box;
-    }
-    body {
-      padding:0px;
-      margin: 0;
-    }
-
-    .body {
-        padding:20px;
-        padding-top:6px;
-    }
-
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-left:20px;
-      margin-bottom: 20px;
-    }
-
-    @media(max-width:700px) {
-      .toolbar {
-        margin-left:0px;
-      }
-    }
-
-    @media(max-width:500px) {
-      #docSelect {
-        max-width:35% !important;
-      }
-    }
-
-    button:not(.button_jamesy-creator) {
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      background: white;
-      cursor: pointer;
-    }
-    #docSelect {
-      padding: 8px 12px;
-      outline: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      max-width:50%;
-      border: none;
-      border-right: solid transparent 10px;
-      background: white;
-      cursor: pointer;
-    }
-    .material-icons-outlined {
-      vertical-align: middle;
-    }
-    .document-container {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .banner {
-      margin: 10px;
-      margin-left:5px;
-      margin-right:5px;
-      min-height: 0px;
-      max-height: 160px;
-      border-radius: 15px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transform: scaleX(-1);
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-      
-    .banner img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      margin: 0px;
-      min-height:0px;
-      max-height: 160px;
-      object-fit: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transform: none !important;
-    }
-      
-    .title, .details, .text_content {
-      border: none;
-      outline: none;
-      width: 100%;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      overflow: -moz-scrollbars-none;
-    }
-    .title::-webkit-scrollbar, 
-    .details::-webkit-scrollbar, 
-    .text_content::-webkit-scrollbar {
-      display: none;
-    }
-    .title {
-      font-size: 30px;
-      height: 38px;
-      margin-top:10px;
-      margin-left:6px;
-      resize: none;
-    }
-    .details {
-      font-size: 16px;
-      margin-left:6px;
-      resize: none;
-      color: gray;
-      height: 25px;
-    }
-    .text_content {
-      font-size: 18px;
-      flex: 1;
-      margin-left:6px;
-      min-height: 60vh;
-      margin-left: 6px;
-      margin-right: 15px;
-      margin-top:0px;
-      padding-top:0px;
-    }
-    textarea {
-      margin-left: 15px;
-    }
-    @media print {
-      body * {
-        visibility: hidden !important;
-      }
-      .document-container, .document-container * {
-        visibility: visible !important;
-      }
-      .document-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        margin: 0;
-        background: white;
-        box-sizing: border-box;
-        overflow: visible !important;
-      }
-      .toolbar {
-        display: none !important;
-      }
-      body {
-        padding: 0;
-        margin: 0;
-      }
-        
-      textarea {
-        border: none !important;
-        box-shadow: none !important;
-        resize: none !important;
-        margin-left: 0;
-        margin-right: 0 !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-        overflow: -moz-scrollbars-none !important;
-      }
-        
-      textarea::-webkit-scrollbar {
-        display: none !important;
-      }
-      .text_content {
-        page-break-inside: avoid;
-        min-height: auto !important;
-        flex: none !important;
-      }
-    }
-  </style>
-</head>
-<body>
-
-   <div class="jamesy-creator">
-  <style>
-    .jamesy-creator {
-      height: 40px;
-      position: sticky;
-      margin-bottom:20px;
-      padding:5px;
-      display:flex;
-      padding-top:7px;
-      padding-left:12px;
-      background: url("banner.png");
-      background-size:cover;
-    }
-    .icon_jamesy-creator {
-      height: 90%;
-      cursor:default;
-    }
-
-    .title_jamesy-creator {
-       color:white;
-       cursor:default;
-       margin-left:7px;
-       margin-right:25px;
-       margin-top:2px;
-    }
-
-    .button_jamesy-creator {
-     background:transparent;
-     border:none;
-     outline: none;
-     color:white;
-     padding:0px;
-     margin-left:20px;
-     cursor:pointer;
-     text-decoration: none;
-     margin-top:2px;
-     transition: 0.2s;
-    }
-    
-    .button_jamesy-creator:hover {
-        transform: scale(1.06);
-    }
-
-  </style>
-  <img src="shapes.png" class="icon_jamesy-creator">
-  <span class="title_jamesy-creator" id="title_jamesy-creator">Jamesy Creator</span>
-
-  <a class="button_jamesy-creator" href="https://jamesy-tech.github.io/jamesy-creator/">Home</a>
-    <a class="button_jamesy-creator" href="https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=apps">Apps</a>
-      <a class="button_jamesy-creator" href="https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=profile">Profile</a>
-        <a class="button_jamesy-creator" href="https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=account">Account</a>
-
-        <script>
-
-            const title = document.title
-
-            document.getElementById("title_jamesy-creator").textContent = title
-
-        </script>
-
-</div>
-
-
-<div class="body">
-
-  <div class="toolbar">
-    <select id="docSelect">
-      <option value="-">No document selected</option>
-    </select>
-    <button onclick="addDocument()">
-      <span class="material-icons-outlined">add</span>
-    </button>
-    <button onclick="deleteDocument()">
-      <span class="material-icons-outlined">delete</span>
-    </button>
-    <button onclick="printDocument()">
-      <span class="material-icons-outlined">print</span>
-    </button>
-    <input type="file" id="bannerInput" accept="image/*" style="display: none;">
-    <button onclick="document.getElementById('bannerInput').click()">
-      <span class="material-icons-outlined">image</span>
-    </button>
-  </div>
-
-  <div class="document-container" id="document">
-    <div class="banner">
-      <img alt="Banner Image">
-    </div>
-    <textarea class="title" placeholder="Untitled Document"></textarea>
-    <textarea class="details" placeholder="By Your Name"></textarea>
-    <textarea class="text_content">Paragraph text...</textarea>
-  </div>
-
-
-  </div>
-
-  <script>
-      
-      
-    const select = document.getElementById('docSelect');
-    const doc = document.getElementById('document');
-    const titleField = doc.querySelector('.title');
-    const detailsField = doc.querySelector('.details');
-    const contentField = doc.querySelector('.text_content');
-    const banner = doc.querySelector('.banner');
-    const bannerImg = banner.querySelector('img');
-    const bannerInput = document.getElementById('bannerInput');
-    const STORAGE_KEY = 'jamesy_documents_v2';
-    const username = localStorage.getItem("username") || "Guest"
-    let documents = {};
-
-    function saveToLocalStorage() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(documents));
-    }
-
-    function loadFromLocalStorage() {
-      const data = localStorage.getItem(STORAGE_KEY);
-      if (data) {
-        documents = JSON.parse(data);
-      } else {
-        const id = Date.now().toString();
-        documents[id] = {
-          title: 'Untitled Document',
-          details: `By ${username}`,
-          content: 'Paragraph text...',
-          banner: ''
-        };
-        saveToLocalStorage();
-      }
-      updateDropdown();
-    }
-
-    function updateDropdown() {
-      const current = select.value;
-      select.innerHTML = '<option value="-">No document selected</option>';
-      for (const [id, docItem] of Object.entries(documents)) {
-        const option = document.createElement('option');
-        option.value = id;
-        option.textContent = docItem.title || 'Untitled Document';
-        select.appendChild(option);
-      }
-      if (documents[current]) {
-        select.value = current;
-        loadDocument(current);
-      } else {
-        select.value = '-';
-        doc.style.display = 'none';
-      }
-    }
-
-    function addDocument() {
-      const id = Date.now().toString();
-      documents[id] = {
-        title: 'Untitled Document',
-        details: `By ${username}`,
-        content: 'Paragraph text...',
-        banner: ''
-      };
-      saveToLocalStorage();
-      updateDropdown();
-      select.value = id;
-      loadDocument(id);
-    }
-
-    function deleteDocument() {
-      const id = select.value;
-      if (id !== '-' && confirm("Are you sure you want to delete this document?")) {
-        delete documents[id];
-        saveToLocalStorage();
-        updateDropdown();
-        select.value = '-';
-        doc.style.display = 'none';
-      }
-    }
-
-  function loadDocument(id) {
-  const d = documents[id];
-  if (!d) return;
-
-  titleField.value = d.title;
-  detailsField.value = d.details;
-  contentField.value = d.content;
-
-  const defaultURL = "https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png";
-
-  if (d.banner) {
-    banner.style.backgroundImage = `url(${d.banner})`;
-    bannerImg.src = d.banner;
-  } else {
-    banner.style.backgroundImage = `url("${defaultURL}")`;
-    bannerImg.src = defaultURL;
-  }
-
-  if ((d.banner || '') === '' || d.banner === defaultURL) {
-    banner.style.transform = "scaleX(-1)";
-  } else {
-    banner.style.transform = "none";
-  }
-
-  doc.style.display = 'flex';
-}
-
-
-    function updateCurrentDocument() {
-      const id = select.value;
-      if (id !== '-' && documents[id]) {
-        documents[id] = {
-          title: titleField.value,
-          details: detailsField.value,
-          content: contentField.value,
-          banner: documents[id].banner || ''
-        };
-        saveToLocalStorage();
-        updateDropdown();
-      }
-    }
-
-    titleField.addEventListener('input', updateCurrentDocument);
-    detailsField.addEventListener('input', updateCurrentDocument);
-    contentField.addEventListener('input', updateCurrentDocument);
-
-    select.addEventListener('change', () => {
-      const id = select.value;
-      if (id === '-') {
-        doc.style.display = 'none';
-      } else {
-        loadDocument(id);
-      }
-    });
-
-    bannerInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        const id = select.value;
-        if (id !== '-' && documents[id]) {
-          const imageURL = event.target.result;
-          documents[id].banner = imageURL;
-          banner.style.backgroundImage = `url(${imageURL})`;
-          bannerImg.src = imageURL;
-          saveToLocalStorage();
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Docs</title>
+    <style>
+        * { font-family: "Mulish", sans-serif; box-sizing: border-box; }
+        body { padding: 0; margin: 0; background: #f5f6fa; }
+        .top-nav {
+            height: 64px;
+            background: #fff;
+            border-bottom: 1.5px solid #eaeaea;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 15px;
+            color: #181a21;
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.03);
+            position: relative;
+            z-index: 10;
         }
-      };
-      reader.readAsDataURL(file);
-    });
-
-
-function printDocument() {
-  const title = titleField.value;
-  const details = detailsField.value;
-  const content = contentField.value.replace(/\n/g, "<br>");
-  const bannerURL = bannerImg.src;
-  
-  const printWin = window.open('', '_blank');
-  const html = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-      <title>${title}</title>
-      <style>
-        body {
-          font-family: "Mulish", sans-serif;
-          margin: 20px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 36px;
+        }
+        .nav-brand img { height: 32px; width: 32px; }
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 20px;
+            color: #23242b;
+            letter-spacing: 0.05em;
+        }
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-item {
+            padding: 10px 22px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 15px;
+            border-radius: 7px;
+            color: #24262d;
+            font-weight: 500;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: #f8faff;
+            color: #0078d4;
+        }
+        .main-container { display: flex; height: calc(100vh - 64px); }
+        .left-nav {
+            width: 270px;
+            background: #fff;
+            border-right: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            color: #23242b;
+        }
+        .nav-header {
+            padding: 12px 18px;
+            background: #f7f7f9;
+            border-bottom: 1px solid #eaeaea;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888;
+        }
+        .nav-content { flex: 1; overflow-y: auto; }
+        .nav-category { border-bottom: 1px solid #f1f1fa; }
+        .category-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+            font-weight: 700;
+            color: #181a21;
+            background: #fff;
+            border-bottom: 1px solid #f5f6fa;
+            position: relative;
+        }
+        .category-header:hover { background: #f8faff; }
+        .category-icon {
+            font-size: 16px !important;
+            margin-right: 8px;
+            transition: transform 0.15s;
+        }
+        .category-header.collapsed .category-icon { transform: rotate(-90deg); }
+        .category-plus-btn {
+            margin-left: auto;
+            color: #0078d4;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            transition: background 0.13s;
+            border-radius: 50%;
+            padding: 4px;
+        }
+        .category-plus-btn:hover { background: #e9f4ff; }
+        .category-items {
+            background: #fff;
+            overflow: hidden;
+            transition: max-height 0.2s ease;
+            padding-bottom: 2px;
+        }
+        .category-items.collapsed { max-height: 0; padding-bottom: 0; }
+        .nav-document-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 14px 8px 32px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #23242b;
+            transition: all 0.15s;
+            position: relative;
+            border-radius: 6px;
+            margin: 2px 6px;
+        }
+        .nav-document-item:hover,
+        .nav-document-item.active {
+            background: #f8faff;
+            color: #0078d4;
+        }
+        .nav-document-item.nohover,
+        .nav-document-item.nohover:hover,
+        .nav-document-item.nohover.active {
+            background: none !important;
+            color: #23242b !important;
+        }
+        .nav-document-item .material-icons-outlined {
+            font-size: 16px !important;
+            margin-right: 8px;
+            opacity: 0.8;
+        }
+        .doc-actions-menu { margin-left: auto; position: relative; }
+        .doc-dot-btn {
+            background: none;
+            border: none;
+            color: #bbb;
+            font-size: 22px;
+            height: 32px;
+            width: 32px;
+            min-width: 32px;
+            min-height: 32px;
+            max-width: 32px;
+            max-height: 32px;
+            padding: 0;
+            margin-left: 6px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.13s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .doc-dot-btn .material-icons-outlined {
+            margin: 0;
+            font-size: 22px !important;
+            line-height: 1;
+            display: block;
+        }
+        .doc-dot-btn:hover, .doc-dot-btn.active {
+            background: #e9f4ff;
+            color: #0078d4;
+        }
+        .doc-actions-dropdown {
+            display: none;
+            position: fixed;
+            min-width: 145px;
+            max-width: 180px;
+            width: 170px;
+            z-index: 9999;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            border-radius: 8px;
+            padding: 4px 0;
+            max-height: 100vh;
+            overflow: auto;
+        }
+        .doc-actions-dropdown.show { display: block; }
+        .doc-action-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 6px 16px;
+            color: #23242b;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            transition: background 0.13s;
+            border-radius: 6px;
+        }
+        .doc-action-item:hover {
+            background: #f4faff;
+            color: #0078d4;
+        }
+        .doc-action-item .material-icons-outlined { font-size: 18px !important; }
+        .nav-actions { display: none !important; }
+        .content-area {
+            flex: 1;
+            background: #fff;
+            overflow: auto;
+        }
+        .body { padding: 32px; padding-top: 18px; }
+        .toolbar { display: none; }
+        .document-container {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
         }
         .banner {
-          margin: 0;
-        border-radius: 15px;
-        overflow: hidden;
-        background: none !important;
-        transform: none !important;
-        min-height:0px;
-        max-height:160px;
-        margin-bottom: 20px;
-        position: relative;
-        width: 100%;
+            margin: 10px 5px;
+            min-height: 0px;
+            max-height: 160px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scaleX(-1);
+            position: relative;
+            width: 100%;
+            overflow: hidden;
         }
         .banner img {
-         display: block !important;
-        width: 100%;
-        height: auto;
-        border-radius: 15px;
-        margin: 0;
-        max-height: 260px;
-        object-fit: cover;
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 0px;
+            min-height:0px;
+            max-height: 160px;
+            object-fit: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: none !important;
+        }
+        .title, .details, .text_content {
+            border: none;
+            outline: none;
+            width: 100%;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+            background: none !important;
+        }
+        .title::-webkit-scrollbar, 
+        .details::-webkit-scrollbar, 
+        .text_content::-webkit-scrollbar {
+            display: none;
         }
         .title {
-          font-size: 30px;
-          margin-bottom: 10px;
+            font-size: 32px;
+            height: 44px;
+            margin-top: 12px;
+            margin-left: 8px;
+            font-weight: 700;
+            color: #23242b;
+            border-radius: 0;
+            padding: 0 0 0 0;
+            display: block;
         }
         .details {
-          font-size: 16px;
-          color: gray;
-          margin-bottom: 20px;
+            font-size: 16px;
+            margin-left: 8px;
+            color: #888;
+            height: 28px;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: 4px;
+            display: block;
         }
-        .content {
-          font-size: 18px;
-          white-space: pre-wrap;
+        .text_content {
+            font-size: 17px;
+            flex: 1;
+            margin-left: 8px;
+            min-height: 60vh;
+            margin-right: 8px;
+            margin-top: 0px;
+            padding: 0;
+            border-radius: 0;
         }
-      </style>
-    </head>
-    <body>
-      <div class="banner">
-  ${bannerURL ? `<img src="${bannerURL}" style="${bannerURL.includes('nav_banner.png') ? 'transform: scaleX(-1);' : ''}">` : ''}
-</div>
-      <div class="title">${title}</div>
-      <div class="details">${details}</div>
-      <div class="content">${content}</div>
-    </body>
-    </html>
-  `;
+        input.title, input.details { resize: none; }
+        textarea { margin-left: 0px; }
+        ::placeholder {
+            color: #c5c7d2;
+            opacity: 1;
+        }
+        /* No document selected page */
+        .no-document-selected {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 68vh;
+            color: #9ca1b1;
+            font-size: 24px;
+            gap: 12px;
+            text-align: center;
+            letter-spacing: .01em;
+            user-select: none;
+            animation: fadeIn .35s;
+        }
+        .no-document-selected .desc {
+            font-size: 17px;
+            color: #b2b6c7;
+            font-weight: 400;
+            max-width: 400px;
+        }
+        @keyframes fadeIn {
+            from { opacity:0; transform: translateY(12px);}
+            to { opacity:1; transform: none;}
+        }
+        @media print {
+            body * { visibility: hidden !important; }
+            .document-container, .document-container * { visibility: visible !important; }
+            .document-container {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                padding: 10px; margin: 0;
+                background: white; box-sizing: border-box;
+                overflow: visible !important;
+            }
+            .toolbar, .top-nav, .left-nav { display: none !important; }
+            body { padding: 0; margin: 0; background: white; }
+            textarea, input { border: none !important; box-shadow: none !important; resize: none !important; }
+            textarea::-webkit-scrollbar { display: none !important; }
+            .text_content { page-break-inside: avoid; min-height: auto !important; flex: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="nav-brand">
+            <img src="shapes.png" alt="Icon">
+            <span id="nav-title">Jamesy Creator</span>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-item" onclick="window.location.href='https://jamesy-tech.github.io/jamesy-creator/'">Home</div>
+            <div class="nav-item" onclick="window.location.href='https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=apps'">Apps</div>
+            <div class="nav-item" onclick="window.location.href='https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=profile'">Profile</div>
+            <div class="nav-item" onclick="window.location.href='https://jamesy-tech.github.io/jamesy-creator/Jamesy%20Creator/index.html?page=account'">Account</div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="left-nav">
+            <div class="nav-header">Workspace</div>
+            <div class="nav-content">
+                <div class="nav-category">
+                    <div class="category-header" onclick="toggleCategory('documents')" id="documents-category-header">
+                        <span class="material-icons-outlined category-icon">expand_more</span>
+                        Documents
+                        <button class="category-plus-btn" title="New Document" onclick="event.stopPropagation(); addDocument();">
+                            <span class="material-icons-outlined">add</span>
+                        </button>
+                    </div>
+                    <div class="category-items" id="documents-category">
+                        <div id="document-list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-actions"></div>
+        </div>
+        <div class="content-area">
+            <div class="body">
+                <div class="toolbar"></div>
+                <div class="no-document-selected" id="no-doc-selected" style="display:flex;">
+                    <div style="font-size:40px; color:#e7eaf3; line-height:1;"></div>
+                    <div><b id="WelcomeLabel">Welcome, Guest!</b></div>
+                    <div class="desc">
+                       Select a document to get started
+                    </div>
+                </div>
+                <div class="document-container" id="document">
+                    <div class="banner"><img alt="Banner Image"></div>
+                    <input class="title" placeholder="Untitled document" autocomplete="off" />
+                    <input class="details" placeholder="By Your Name" autocomplete="off" />
+                    <textarea class="text_content" placeholder="Start writing..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="file" id="bannerInput" accept="image/*" style="display: none;">
+    <script>
 
-  printWin.document.write(html);
-  printWin.document.close();
+        const doc = document.getElementById('document');
+        const titleField = doc.querySelector('.title');
+        const detailsField = doc.querySelector('.details');
+        const contentField = doc.querySelector('.text_content');
+        const banner = doc.querySelector('.banner');
+        const bannerImg = banner.querySelector('img');
+        const bannerInput = document.getElementById('bannerInput');
+        const documentList = document.getElementById('document-list');
+        const noDocSelected = document.getElementById('no-doc-selected');
+        const STORAGE_KEY = 'jamesy_documents_v2';
+        const username = localStorage.getItem("username") || "Guest";
+        let documents = {};
+        let currentDocumentId = null;
 
-  printWin.onload = () => {
-    printWin.focus();
-    printWin.print();
-    printWin.close();
-  };
-}
+        document.getElementById("WelcomeLabel").textContent = "Welcome, " + username + "!"
+        // tab order
+        titleField.tabIndex = 1;
+        contentField.tabIndex = 2;
+        detailsField.tabIndex = 3;
+        // Enter key navigation (title to body)
+        titleField.addEventListener('keydown', function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                contentField.focus();
+                contentField.select();
+            }
+        });
+        // Optional: body to author if you want
+        contentField.addEventListener('keydown', function(e) {
+            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                detailsField.focus();
+                detailsField.select();
+            }
+        });
+        // Set navigation title
+        document.getElementById("nav-title").textContent = document.title;
+        function toggleCategory(categoryName) {
+            const header = document.getElementById(`${categoryName}-category-header`);
+            const category = document.getElementById(`${categoryName}-category`);
+            header.classList.toggle('collapsed');
+            category.classList.toggle('collapsed');
+            if (category.classList.contains('collapsed')) {
+                category.style.maxHeight = '0px';
+            } else {
+                category.style.maxHeight = category.scrollHeight + 'px';
+            }
+        }
+        function saveToLocalStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(documents));
+        }
+        function loadFromLocalStorage() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            if (data) {
+                documents = JSON.parse(data);
+            }
+            updateDocumentList();
+            showNoDocPage();
+        }
+        function updateDocumentList() {
+            documentList.innerHTML = '';
+            for (const [id, docItem] of Object.entries(documents)) {
+                const item = document.createElement('div');
+                item.className = 'nav-document-item';
+                if (id === currentDocumentId) {
+                    item.classList.add('active');
+                }
+                item.onclick = (e) => {
+                    if (e.target.closest('.doc-dot-btn') || e.target.closest('.doc-actions-dropdown')) return;
+                    selectDocument(id);
+                };
+                item.innerHTML = `
+                    <span class="material-icons-outlined">description</span>
+                    <span class="document-title">${docItem.title || 'Untitled document'}</span>
+                    <div class="doc-actions-menu">
+                        <button class="doc-dot-btn" title="Document Actions" tabindex="-1" onclick="event.stopPropagation(); toggleDocActionsMenu(event, '${id}', this)">
+                            <span class="material-icons-outlined">more_horiz</span>
+                        </button>
+                        <div class="doc-actions-dropdown" id="doc-actions-dropdown-${id}">
+                            <button class="doc-action-item" onclick="event.stopPropagation(); deleteDocument('${id}')">
+                                <span class="material-icons-outlined">delete</span> Delete
+                            </button>
+                            <button class="doc-action-item" onclick="event.stopPropagation(); printDocument('${id}')">
+                                <span class="material-icons-outlined">print</span> Print
+                            </button>
+                            <button class="doc-action-item" onclick="event.stopPropagation(); triggerBannerUpload('${id}')">
+                                <span class="material-icons-outlined">image</span> Banner Image
+                            </button>
+                        </div>
+                    </div>
+                `;
+                documentList.appendChild(item);
+            }
+            const category = document.getElementById('documents-category');
+            if (!category.classList.contains('collapsed')) {
+                category.style.maxHeight = category.scrollHeight + 'px';
+            }
+        }
+        function selectDocument(id) {
+            currentDocumentId = id;
+            loadDocument(id);
+            document.querySelectorAll('.nav-document-item.nohover').forEach(el=>el.classList.remove('nohover'));
+            showDocPage();
+            updateDocumentList();
+        }
+        function addDocument() {
+            const id = Date.now().toString();
+            documents[id] = {
+                title: '',
+                details: `By ${username}`,
+                content: '',
+                banner: ''
+            };
+            saveToLocalStorage();
+            selectDocument(id);
+            setTimeout(() => {
+                titleField.value = '';
+                titleField.focus();
+            }, 1);
+        }
+        function deleteDocument(id = null) {
+            const docId = id || currentDocumentId;
+            if (docId && confirm("Are you sure you want to delete this document?")) {
+                delete documents[docId];
+                saveToLocalStorage();
+                if (docId === currentDocumentId) {
+                    currentDocumentId = null;
+                    showNoDocPage();
+                }
+                updateDocumentList();
+                closeAllDocActionsMenus();
+            }
+        }
+        function loadDocument(id) {
+            const d = documents[id];
+            if (!d) return;
+            titleField.value = d.title || '';
+            detailsField.value = d.details || `By ${username}`;
+            contentField.value = d.content || '';
+            const defaultURL = "https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png";
+            if (d.banner) {
+                banner.style.backgroundImage = `url(${d.banner})`;
+                bannerImg.src = d.banner;
+            } else {
+                banner.style.backgroundImage = `url('${defaultURL}')`;
+                bannerImg.src = defaultURL;
+            }
+            if ((d.banner || '') === '' || d.banner === defaultURL) {
+                banner.style.transform = "scaleX(-1)";
+            } else {
+                banner.style.transform = "none";
+            }
+        }
+        function updateCurrentDocument() {
+            if (currentDocumentId && documents[currentDocumentId]) {
+                documents[currentDocumentId] = {
+                    title: titleField.value,
+                    details: detailsField.value,
+                    content: contentField.value,
+                    banner: documents[currentDocumentId].banner || ''
+                };
+                saveToLocalStorage();
+                updateDocumentList();
+            }
+        }
+        titleField.addEventListener('input', updateCurrentDocument);
+        detailsField.addEventListener('input', updateCurrentDocument);
+        contentField.addEventListener('input', updateCurrentDocument);
 
+        // Show/hide pages
+        function showNoDocPage() {
+            doc.style.display = 'none';
+            noDocSelected.style.display = 'flex';
+        }
+        function showDocPage() {
+            doc.style.display = 'flex';
+            noDocSelected.style.display = 'none';
+        }
 
+        // Banner upload (from dot menu)
+        function triggerBannerUpload(id) {
+            bannerInput.value = '';
+            bannerInput.onchange = function (e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    if (documents[id]) {
+                        const imageURL = event.target.result;
+                        documents[id].banner = imageURL;
+                        if (id === currentDocumentId) {
+                            banner.style.backgroundImage = `url(${imageURL})`;
+                            bannerImg.src = imageURL;
+                            banner.style.transform = "none";
+                        }
+                        saveToLocalStorage();
+                        updateDocumentList();
+                    }
+                };
+                reader.readAsDataURL(file);
+            };
+            bannerInput.click();
+            closeAllDocActionsMenus();
+        }
+        bannerInput.addEventListener('change', (e) => {
+            if (!bannerInput.onchange) {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    if (currentDocumentId && documents[currentDocumentId]) {
+                        const imageURL = event.target.result;
+                        documents[currentDocumentId].banner = imageURL;
+                        banner.style.backgroundImage = `url(${imageURL})`;
+                        bannerImg.src = imageURL;
+                        banner.style.transform = "none";
+                        saveToLocalStorage();
+                        updateDocumentList();
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
-    loadFromLocalStorage();
-  </script>
+        // Dot-dot-dot menu: always fits in viewport
+        function toggleDocActionsMenu(event, id, btn) {
+            event.stopPropagation();
+            closeAllDocActionsMenus();
+            const allNavItems = document.querySelectorAll('.nav-document-item');
+            allNavItems.forEach(navItem => navItem.classList.remove('nohover'));
+            const navItem = btn.closest('.nav-document-item');
+            if (navItem) navItem.classList.add('nohover');
+            const menu = document.getElementById(`doc-actions-dropdown-${id}`);
+            if (menu) {
+                menu.classList.add('show');
+                // Reposition absolutely to window
+                const btnRect = btn.getBoundingClientRect();
+                let top = btnRect.bottom + 4;
+                let left = btnRect.right - menu.offsetWidth;
+                // If too far down, show above
+                if (top + menu.offsetHeight > window.innerHeight) {
+                    top = btnRect.top - menu.offsetHeight - 4;
+                }
+                // Clamp to viewport
+                if (top < 0) top = 8;
+                if (left + menu.offsetWidth > window.innerWidth) left = window.innerWidth - menu.offsetWidth - 8;
+                if (left < 0) left = 8;
+                menu.style.top = `${top}px`;
+                menu.style.left = `${left}px`;
+            }
+            setTimeout(() => {
+                document.addEventListener('mousedown', function docActionsMenuClickAway(e) {
+                    if (!e.target.closest('.doc-actions-menu')) {
+                        closeAllDocActionsMenus();
+                        document.querySelectorAll('.nav-document-item.nohover').forEach(el=>el.classList.remove('nohover'));
+                    }
+                }, {capture:true, once:true});
+            }, 10);
+        }
+        function closeAllDocActionsMenus() {
+            document.querySelectorAll('.doc-actions-dropdown.show').forEach(menu => menu.classList.remove('show'));
+            document.querySelectorAll('.nav-document-item.nohover').forEach(el=>el.classList.remove('nohover'));
+        }
+        function printDocument(id = null) {
+            const docId = id || currentDocumentId;
+            if (!docId) return;
+            const d = documents[docId];
+            if (!d) return;
+            const title = d.title;
+            const details = d.details;
+            const content = d.content.replace(/\n/g, "<br>");
+            const bannerURL = d.banner || "https://raw.githubusercontent.com/Jamesy-tech/jamesy-creator/main/Jamesy%20Creator/nav_banner.png";
+            const printWin = window.open('', '_blank');
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+                    <title>${title}</title>
+                    <style>
+                        body {
+                            font-family: "Mulish", sans-serif;
+                            margin: 20px;
+                        }
+                        .banner {
+                            margin: 0;
+                            border-radius: 15px;
+                            overflow: hidden;
+                            background: none !important;
+                            transform: none !important;
+                            min-height:0px;
+                            max-height:160px;
+                            margin-bottom: 20px;
+                            position: relative;
+                            width: 100%;
+                        }
+                        .banner img {
+                            display: block !important;
+                            width: 100%;
+                            height: auto;
+                            border-radius: 15px;
+                            margin: 0;
+                            max-height: 260px;
+                            object-fit: cover;
+                        }
+                        .title {
+                            font-size: 30px;
+                            margin-bottom: 10px;
+                        }
+                        .details {
+                            font-size: 16px;
+                            color: gray;
+                            margin-bottom: 20px;
+                        }
+                        .content {
+                            font-size: 18px;
+                            white-space: pre-wrap;
+                        }
+                    </style>
+                </head>
+                <body>
+                <div class="banner">
+                    ${bannerURL ? `<img src="${bannerURL}" style="${bannerURL.includes('nav_banner.png') ? 'transform: scaleX(-1);' : ''}">` : ''}
+                </div>
+                <div class="title">${title}</div>
+                <div class="details">${details}</div>
+                <div class="content">${content}</div>
+                </body>
+                </html>
+            `;
+            printWin.document.write(html);
+            printWin.document.close();
+            printWin.onload = () => {
+                printWin.focus();
+                printWin.print();
+                printWin.close();
+            };
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeAllDocActionsMenus();
+        });
+        loadFromLocalStorage();
+    </script>
 </body>
 </html>

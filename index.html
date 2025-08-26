@@ -478,7 +478,7 @@
                     if (e.target.closest('.doc-dot-btn') || e.target.closest('.doc-actions-dropdown')) return;
                     selectDocument(id);
                 };
-                // The .document-title is the part that will ellipsis
+
                 item.innerHTML = `
                     <span class="material-icons-outlined">description</span>
                     <span class="document-title">${docItem.title || 'Untitled document'}</span>
@@ -702,7 +702,7 @@
                             transform: none !important;
                             min-height:0px;
                             max-height:160px;
-                            margin-bottom: 20px;
+                            margin-bottom: 30px;
                             position: relative;
                             width: 100%;
                         }
